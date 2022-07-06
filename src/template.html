@@ -7,6 +7,28 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-    <p>YEAH</p>
+    <header class="header">
+        <h1 class="header__title">Todo List</h1>
+        <button class="header__button">+</button>
+    </header>
+    <main>
+        <nav class="sidebar">
+            <div class="sidebar__main">
+                <ul class="sidebar__list">
+                    <li class="sidebar__item">All Tasks</li>
+                    <li class="sidebar__item">Main Tasks</li>
+                </ul>
+            </div>
+            <div class="sidebar__projects">
+                <p>+ Create a Project</p>
+                <ul class="sidebar__list">
+                    <li class="sidebar__item">Test Project</li>
+                </ul>
+            </div>
+        </nav>
+        <section class="list">
+        
+        </section>
+    </main>
 </body>
 </html>
