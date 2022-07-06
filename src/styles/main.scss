@@ -4,6 +4,7 @@ $accent-color: #064663;
 $important-color: #ECB365;
 $highprio-color: #A10035;
 $medprio-color: #FFE7BF;
+$text-color: #FFF;
 
 * {
     margin: 0;
@@ -14,4 +15,26 @@ $medprio-color: #FFE7BF;
 
 body, html {
     height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0.3rem 2rem;
+    background-color: $primary-color;
+
+    &__title, &__button {
+        color: $text-color;
+    }
+
+    &__button {
+        width: 65px;
+        height: 65px;
+        font-size: 3rem;
+        border-radius: 50%;
+        border: 0;
+        background-color: $important-color;
+    }
 }
