@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n  font-family: Arial;\n}\n\nbody, html {\n  height: 100vh;\n}", "",{"version":3,"sources":["webpack://./src/styles/main.scss"],"names":[],"mappings":"AAAA;EACI,SAAA;EACA,UAAA;EACA,sBAAA;EACA,kBAAA;AACJ;;AAEA;EACI,aAAA;AACJ","sourcesContent":["* {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n    font-family: Arial;\n}\n\nbody, html {\n    height: 100vh;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n  font-family: Arial;\n}\n\nbody, html {\n  height: 100vh;\n}", "",{"version":3,"sources":["webpack://./src/styles/main.scss"],"names":[],"mappings":"AAOA;EACI,SAAA;EACA,UAAA;EACA,sBAAA;EACA,kBAAA;AANJ;;AASA;EACI,aAAA;AANJ","sourcesContent":["$primary-color: #041C32;\n$secondary-color: #04293A;\n$accent-color: #064663;\n$important-color: #ECB365;\n$highprio-color: #A10035;\n$medprio-color: #FFE7BF;\n\n* {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n    font-family: Arial;\n}\n\nbody, html {\n    height: 100vh;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
