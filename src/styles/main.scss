@@ -23,8 +23,11 @@ $text-color: #FFF;
     color: $text-color;
 }
 
-body, html {
+body,
+html {
     height: 100vh;
+
+    // DISABLE POINTER EVENTS ON BODY WHEN SUBMIT
 }
 
 .header {
@@ -57,7 +60,7 @@ main {
     background-color: $accent-color;
     font-size: 1.4rem;
     width: 280px;
-    
+
     &__main {
         padding-bottom: 1rem;
         border-bottom: 1px solid $primary-color;
@@ -65,7 +68,8 @@ main {
 
     &__projects {
         text-align: center;
-        p { 
+
+        p {
             padding: 1rem;
             @include sidebar-hover($primary-color);
         }
@@ -84,10 +88,15 @@ main {
 }
 
 .list {
+    position: relative;
+
     width: 100%;
-    padding: 1rem;
-    overflow: scroll;
-    
+    overflow: scroll; // CHANGE TO HIDE DURING ADDING
+
+    &__items {
+        padding: 1rem;
+    }
+
     &__item {
         margin-bottom: 0.5rem;
         background-color: $primary-color;
@@ -97,7 +106,7 @@ main {
             border-bottom-right-radius: 15px;
             border-bottom-left-radius: 15px;
         }
-        
+
         @include sidebar-hover($list-highlight-color);
     }
 
@@ -114,6 +123,7 @@ main {
         &--high {
             border-left: 5px solid $highprio-color;
         }
+
         &--med {
             border-left: 5px solid $medprio-color;
         }
@@ -132,7 +142,7 @@ main {
         width: 50px;
         accent-color: $important-color;
     }
-    
+
     &__desc {
         display: none;
 
@@ -149,6 +159,7 @@ main {
 
     &__descText {
         padding-bottom: 1rem;
+
         :first-child {
             font-weight: 700;
             padding-bottom: 0.5rem;
@@ -160,7 +171,7 @@ main {
     }
 
     &__checklist {
-        > p {
+        >p {
             font-weight: 700;
             padding-bottom: 0.5rem;
         }
@@ -170,6 +181,7 @@ main {
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
+
         div {
             font-size: 1.2rem;
 
@@ -194,5 +206,102 @@ main {
         border-radius: 5px;
         padding: 0.5rem;
         border: 0;
+    }
+}
+
+.add {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    display: none; // ADD GRID LATER
+    place-items: center;
+
+    pointer-events: all;
+
+    
+    &__box {
+        background-color: $secondary-color;
+        border: 2px solid $accent-color;
+        width: 70vw;
+        border-radius: 5px;
+    }
+
+
+    &__top{
+        background-color: $accent-color;
+        padding: 0.5rem 1rem;
+        display: flex;
+        justify-content: space-between;
+
+        h1 {
+            font-size: 2rem;
+            cursor: default;
+        }
+    }
+
+    &__form {
+        padding: 1rem;
+        font-size: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        
+        input, textarea {
+            margin-bottom: 1rem;
+            background-color: $primary-color;
+            border: none;
+        }
+
+        input[type="text"], textarea {
+            display: block;
+            width: 100%;
+        }
+
+        input[type="text"] {
+            font-size: 1.5rem;
+        }
+
+        textarea {
+            font-size: 1.2rem;
+            resize: none;
+        }
+
+        input[type="date"] {
+            font-size: 1.2rem;
+            border-radius: 4px;
+            padding: 0.2rem;
+
+            border: 1px solid $accent-color;
+        }
+
+        button[type="button"] {
+            padding: 0.2rem 1rem;
+            border: none;
+        }
+
+        #low {
+            background-color: $accent-color;
+        }
+
+        #med {
+            background-color: $medprio-color;
+            color: $primary-color;
+        }
+
+        #high {
+            background-color: $highprio-color;
+        }
+
+        button[type="submit"] {
+            background-color: $important-color;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            align-self: center;
+        }
+
     }
 }

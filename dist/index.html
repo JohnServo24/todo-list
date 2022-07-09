@@ -31,100 +31,114 @@
             </div>
         </nav>
         <section class="list">
-            <div class="list__item list__item--active">
-                <div class="list__wrapper">
-                    <div class="list__top list__top--active list__top--high">
-                        <p class="list__name">Go to friend's house</p>
-                        <div class="list__right">
-                            <p class="list__date">01/01/2022 - 00:00</p>
-                            <input class="list__check" type="checkbox">
-                        </div>
+            <div class="add">
+                <div class="add__box">
+                    <div class="add__top">
+                        <h1>Create a new Todo</h1>
+                        <h1>X</h1>
                     </div>
-                </div>
-            </div>
-            <div class="list__item">
-                <div class="list__wrapper">
-                    <div class="list__top list__top--med">
-                        <p class="list__name">Buy Groceries</p>
-                        <div class="list__right">
-                            <p class="list__date">01/01/2022 - 00:00</p>
-                            <input class="list__check" type="checkbox" checked>
-                        </div>
-                    </div>
-                    <div class="list__desc">
-                    </div>
-                </div>
-            </div>
-            <div class="list__item">
-                <div class="list__wrapper">
-                    <div class="list__top">
-                        <p class="list__name">Go Shopping</p>
-                        <div class="list__right">
-                            <p class="list__date">01/01/2022 - 00:00</p>
-                            <input class="list__check" type="checkbox">
-                        </div>
-                    </div>
-                    <div class="list__desc">
-                       <p></p>
-                    </div>
-                </div>
-            </div>
-            <div class="list__item list__item--active">
-                <div class="list__wrapper">
-                    <div class="list__top list__top--active">
-                        <p class="list__name">Go to friend's house</p>
-                        <div class="list__right">
-                            <p class="list__date">01/01/2022 - 00:00</p>
-                            <input class="list__check" type="checkbox">
-                        </div>
-                    </div>
-                    <div class="list__desc list__desc--active">
-                        <div class="list__descText">
-                            <p>Description</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci velit corrupti eum sapiente quasi delectus rem, inventore alias accusantium, nam laboriosam nisi quod tenetur, est iusto ratione eos sint cum?</p>
-                        </div>
-                        <div class="list__checklist">
-                            <p>Checklist</p>
+                    <form action="" class="add__form">
+                        <input type="text" placeholder="To do: Pay bills">
+                        <textarea name="" id="" rows="15" placeholder = "Details e.g internet,phone, rent"></textarea>
 
-                            <div class="list__checklist-wrapper">
-                                <div>
-                                    <p><input type="checkbox"> Thing #1</p>
-                                    <p><input type="checkbox" checked> Thing #2</p>
-                                    <p><input type="checkbox"> Thing #3</p>
-                                </div>
-                                <button class="list__delete">Delete</button>
+                        <div>
+                            <label for="date">Due Date:</label>
+                            <input type="date" id="date">
+                        </div>
+
+                        <div>
+                            <label for="priority">Priority:</label>
+                            <button type="button" id="low">Low</button>
+                            <button type="button" id="med">Medium</button>
+                            <button type="button" id="high">High</button>
+                        </div>
+
+                        <button type="submit">ADD TO DO</button>
+                    </form>
+                </div>
+            </div>
+            <div class="list__items">
+                <div class="list__item list__item--active">
+                    <div class="list__wrapper">
+                        <div class="list__top list__top--active list__top--high">
+                            <p class="list__name">Go to friend's house</p>
+                            <div class="list__right">
+                                <p class="list__date">01/01/2022 - 00:00</p>
+                                <input class="list__check" type="checkbox">
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="list__item">
-                <div class="list__wrapper">
-                    <div class="list__top">
-                        <p class="list__name">Continue project</p>
-                        <div class="list__right">
-                            <p class="list__date">01/01/2022 - 00:00</p>
-                            <input class="list__check" type="checkbox">
+                <div class="list__item">
+                    <div class="list__wrapper">
+                        <div class="list__top list__top--med">
+                            <p class="list__name">Buy Groceries</p>
+                            <div class="list__right">
+                                <p class="list__date">01/01/2022 - 00:00</p>
+                                <input class="list__check" type="checkbox" checked>
+                            </div>
+                        </div>
+                        <div class="list__desc">
                         </div>
                     </div>
-                    <div class="list__desc">
-                    </div>
                 </div>
-            </div>
-            <div class="list__item">
-                <div class="list__wrapper">
-                    <div class="list__top">
-                        <p class="list__name">Brush teeth</p>
-                        <div class="list__right">
-                            <p class="list__date">01/01/2022 - 00:00</p>
-                            <input class="list__check" type="checkbox">
+                <div class="list__item">
+                    <div class="list__wrapper">
+                        <div class="list__top">
+                            <p class="list__name">Go Shopping</p>
+                            <div class="list__right">
+                                <p class="list__date">01/01/2022 - 00:00</p>
+                                <input class="list__check" type="checkbox">
+                            </div>
+                        </div>
+                        <div class="list__desc">
+                           <p></p>
                         </div>
                     </div>
-                    <div class="list__desc">
+                </div>
+                <div class="list__item list__item--active">
+                    <div class="list__wrapper">
+                        <div class="list__top list__top--active">
+                            <p class="list__name">Go to friend's house</p>
+                            <div class="list__right">
+                                <p class="list__date">01/01/2022 - 00:00</p>
+                                <input class="list__check" type="checkbox">
+                            </div>
+                        </div>
+                        <!-- <div class="list__desc list__desc--active">
+                            <div class="list__descText">
+                                <p>Description</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci velit corrupti eum sapiente quasi delectus rem, inventore alias accusantium, nam laboriosam nisi quod tenetur, est iusto ratione eos sint cum?</p>
+                            </div>
+                            <div class="list__checklist">
+                                <p>Checklist</p>
+                                <div class="list__checklist-wrapper">
+                                    <div>
+                                        <p><input type="checkbox"> Thing #1</p>
+                                        <p><input type="checkbox" checked> Thing #2</p>
+                                        <p><input type="checkbox"> Thing #3</p>
+                                    </div>
+                                    <button class="list__delete">Delete</button>
+                                </div>
+                            </div>
+                        </div> -->
                     </div>
                 </div>
-            </div>
+                <div class="list__item">
+                    <div class="list__wrapper">
+                        <div class="list__top">
+                            <p class="list__name">Continue project</p>
+                            <div class="list__right">
+                                <p class="list__date">01/01/2022 - 00:00</p>
+                                <input class="list__check" type="checkbox">
+                            </div>
+                        </div>
+                        <div class="list__desc">
+                        </div>
+                    </div>
+                </div>
         </section>
     </main>
+
 </body>
 </html>
