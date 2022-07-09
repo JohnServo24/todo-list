@@ -37,28 +37,32 @@
                         <h1>Create a new Todo</h1>
                         <h1 id="exit">X</h1>
                     </div>
-                    <form action="" class="add__form">
-                        <input type="text" placeholder="To do: Pay bills">
-                        <textarea name="" id="" rows="15" placeholder = "Details e.g internet,phone, rent"></textarea>
+                    <form action="/" class="add__form" id="todoForm" onsubmit="return false">
+                        <input type="text" id="title" placeholder="To do: Pay bills" required>
+                        <textarea name="" id="desc" rows="15" id="desc" placeholder = "Details e.g internet,phone, rent"></textarea>
 
                         <div>
                             <label for="date">Due Date:</label>
-                            <input type="date" id="date">
+                            <input type="date" id="date" required>
+                            <label for="time">Time:</label>
+                            <input type="time" id="time" required>
                         </div>
 
                         <div>
                             <label for="priority">Priority:</label>
-                            <button type="button" id="low">Low</button>
-                            <button type="button" id="med">Medium</button>
-                            <button type="button" id="high">High</button>
+                            <div id="prioButtons">
+                                <button type="button" id="low">Low</button>
+                                <button type="button" id="med">Medium</button>
+                                <button type="button" id="high">High</button>
+                            </div>
                         </div>
 
                         <button type="submit">ADD TO DO</button>
                     </form>
                 </div>
             </div>
-            <div class="list__items">
-                <div class="list__item list__item--active">
+            <div class="list__items" id="listItems">
+                <!-- <div class="list__item list__item--active">
                     <div class="list__wrapper">
                         <div class="list__top list__top--active list__top--high">
                             <p class="list__name">Go to friend's house</p>
@@ -105,7 +109,7 @@
                                 <input class="list__check" type="checkbox">
                             </div>
                         </div>
-                        <!-- <div class="list__desc list__desc--active">
+                        div class="list__desc list__desc--active">
                             <div class="list__descText">
                                 <p>Description</p>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci velit corrupti eum sapiente quasi delectus rem, inventore alias accusantium, nam laboriosam nisi quod tenetur, est iusto ratione eos sint cum?</p>
@@ -121,19 +125,6 @@
                                     <button class="list__delete">Delete</button>
                                 </div>
                             </div>
-                        </div> -->
-                    </div>
-                </div>
-                <div class="list__item">
-                    <div class="list__wrapper">
-                        <div class="list__top">
-                            <p class="list__name">Continue project</p>
-                            <div class="list__right">
-                                <p class="list__date">01/01/2022 - 00:00</p>
-                                <input class="list__check" type="checkbox">
-                            </div>
-                        </div>
-                        <div class="list__desc">
                         </div>
                     </div>
                 </div>
@@ -280,6 +271,19 @@
                         </div>
                     </div>
                 </div>
+                <div class="list__item">
+                    <div class="list__wrapper">
+                        <div class="list__top">
+                            <p class="list__name">Continue project</p>
+                            <div class="list__right">
+                                <p class="list__date">01/01/2022 - 00:00</p>
+                                <input class="list__check" type="checkbox">
+                            </div>
+                        </div>
+                        <div class="list__desc">
+                        </div>
+                    </div>
+                </div> -->
         </section>
     </main>
 
