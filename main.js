@@ -750,15 +750,13 @@ const addGlobalListener = (type, selector, callback) => {
 const expandShrinkToggle = e => {
     const item = findCurrentCard(e);
     const title = findTitle(item);
-    const children = selectAllDivChildren(item);
+    const children = item.querySelectorAll("div");
     const currentItem = findCurrentItemInArray(title);
 
     if (currentItem[0].checkStatus() === 0) expandCard(item, children);
     else shrinkCard(item, children);
 
     currentItem[0].changeStatus();
-
-    console.log(mainList);
 }
 
 const findCurrentItemInArray = title => mainList.filter(listItem => listItem.title === title);
@@ -770,8 +768,6 @@ const findCurrentCard = e => {
     
     return item;
 };
-
-const selectAllDivChildren = item => item.querySelectorAll("div");
 
 const deleteItemFromArray = title => {mainList = mainList.filter(item => item.title != title)};
 
