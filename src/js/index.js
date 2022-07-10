@@ -98,6 +98,8 @@ const createItemObj = (title, desc, date, time, priority) => {
     mainList.push(item);
 }
 
+const hasDuplicate = title => mainList.find(item => item.title === title);
+
 const createTodo = (title, desc, date, time, priority, listItems) => {
     createItem(title, desc, date, time, priority, listItems);
     createItemObj(title, desc, date, time, priority);
@@ -160,10 +162,7 @@ const selectAllDivChildren = item => item.querySelectorAll("div");
 
 const deleteItemFromArray = title => {mainList = mainList.filter(item => item.title != title)};
 
-const deleteItemDOM =  card => {
-    while(card.firstChild) card.removeChild(card.firstChild);
-    card.remove();
-};
+const deleteItemDOM =  card => card.remove();
 
 const deleteItem = e => {
     const card = findCurrentCard(e);
@@ -190,6 +189,8 @@ const allButtons = buttons.querySelectorAll("button");
 
 const listItems = document.getElementById("listItems");
 
+const duplicateErrorMessage = document.getElementById("duplicateErrorMessage");
+
 addGlobalListener("click", ".list__top", expandShrinkToggle);
 addGlobalListener("click", ".list__delete", deleteItem);
 
@@ -209,6 +210,13 @@ createTodo("title2", "desc2", "date2", "time2", "priority2", listItems);
 createTodo("title3", "desc3", "date3", "time3", "priority3", listItems);
 
 form.addEventListener("submit", e => {
+    if(hasDuplicate(title.value)) {
+        alert("Task names must be different!");
+
+        e.preventDefault();
+        return;
+    };
+
     createTodo(title.value, desc.value, date.value, time.value, priority, listItems);
     priority = "";
 
