@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./js/index.js" defer></script>
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
 </head>
+
 <body>
     <header class="header">
         <h1 class="header__title">Todo List</h1>
@@ -39,7 +43,8 @@
                     </div>
                     <form action="/" class="add__form" id="todoForm" onsubmit="return false">
                         <input type="text" id="title" placeholder="To do: Pay bills" required>
-                        <textarea name="" id="desc" rows="15" id="desc" placeholder = "Details e.g internet,phone, rent"></textarea>
+                        <textarea name="" id="desc" rows="15" id="desc"
+                            placeholder="Details e.g internet,phone, rent"></textarea>
 
                         <div>
                             <label for="date">Due Date:</label>
@@ -85,8 +90,8 @@
                         <div class="list__desc">
                         </div>
                     </div>
-                </div>
-                <div class="list__item">
+                </div> -->
+                <!-- <div class="list__item">
                     <div class="list__wrapper">
                         <div class="list__top">
                             <p class="list__name">Go Shopping</p>
@@ -96,7 +101,15 @@
                             </div>
                         </div>
                         <div class="list__desc">
-                           <p></p>
+                            <div class="list__descText">
+                                <p>Description</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci velit corrupti eum
+                                    sapiente quasi delectus rem, inventore alias accusantium, nam laboriosam nisi quod
+                                    tenetur, est iusto ratione eos sint cum?</p>
+                            </div>
+                            <div class="list__delete-wrapper">
+                                <button class="list__delete">Delete</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -109,183 +122,23 @@
                                 <input class="list__check" type="checkbox">
                             </div>
                         </div>
-                        div class="list__desc list__desc--active">
+                        <div class="list__desc list__desc--active">
                             <div class="list__descText">
                                 <p>Description</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci velit corrupti eum sapiente quasi delectus rem, inventore alias accusantium, nam laboriosam nisi quod tenetur, est iusto ratione eos sint cum?</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci velit corrupti eum
+                                    sapiente quasi delectus rem, inventore alias accusantium, nam laboriosam nisi quod
+                                    tenetur, est iusto ratione eos sint cum?</p>
                             </div>
-                            <div class="list__checklist">
-                                <p>Checklist</p>
-                                <div class="list__checklist-wrapper">
-                                    <div>
-                                        <p><input type="checkbox"> Thing #1</p>
-                                        <p><input type="checkbox" checked> Thing #2</p>
-                                        <p><input type="checkbox"> Thing #3</p>
-                                    </div>
-                                    <button class="list__delete">Delete</button>
-                                </div>
+                            <div class="list__delete-wrapper">
+                                <button class="list__delete">Delete</button>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="list__item">
-                    <div class="list__wrapper">
-                        <div class="list__top">
-                            <p class="list__name">Continue project</p>
-                            <div class="list__right">
-                                <p class="list__date">01/01/2022 - 00:00</p>
-                                <input class="list__check" type="checkbox">
-                            </div>
-                        </div>
-                        <div class="list__desc">
-                        </div>
-                    </div>
-                </div>
-                <div class="list__item">
-                    <div class="list__wrapper">
-                        <div class="list__top">
-                            <p class="list__name">Continue project</p>
-                            <div class="list__right">
-                                <p class="list__date">01/01/2022 - 00:00</p>
-                                <input class="list__check" type="checkbox">
-                            </div>
-                        </div>
-                        <div class="list__desc">
-                        </div>
-                    </div>
-                </div>
-                <div class="list__item">
-                    <div class="list__wrapper">
-                        <div class="list__top">
-                            <p class="list__name">Continue project</p>
-                            <div class="list__right">
-                                <p class="list__date">01/01/2022 - 00:00</p>
-                                <input class="list__check" type="checkbox">
-                            </div>
-                        </div>
-                        <div class="list__desc">
-                        </div>
-                    </div>
-                </div>
-                <div class="list__item">
-                    <div class="list__wrapper">
-                        <div class="list__top">
-                            <p class="list__name">Continue project</p>
-                            <div class="list__right">
-                                <p class="list__date">01/01/2022 - 00:00</p>
-                                <input class="list__check" type="checkbox">
-                            </div>
-                        </div>
-                        <div class="list__desc">
-                        </div>
-                    </div>
-                </div>
-                <div class="list__item">
-                    <div class="list__wrapper">
-                        <div class="list__top">
-                            <p class="list__name">Continue project</p>
-                            <div class="list__right">
-                                <p class="list__date">01/01/2022 - 00:00</p>
-                                <input class="list__check" type="checkbox">
-                            </div>
-                        </div>
-                        <div class="list__desc">
-                        </div>
-                    </div>
-                </div>
-                <div class="list__item">
-                    <div class="list__wrapper">
-                        <div class="list__top">
-                            <p class="list__name">Continue project</p>
-                            <div class="list__right">
-                                <p class="list__date">01/01/2022 - 00:00</p>
-                                <input class="list__check" type="checkbox">
-                            </div>
-                        </div>
-                        <div class="list__desc">
-                        </div>
-                    </div>
-                </div>
-                <div class="list__item">
-                    <div class="list__wrapper">
-                        <div class="list__top">
-                            <p class="list__name">Continue project</p>
-                            <div class="list__right">
-                                <p class="list__date">01/01/2022 - 00:00</p>
-                                <input class="list__check" type="checkbox">
-                            </div>
-                        </div>
-                        <div class="list__desc">
-                        </div>
-                    </div>
-                </div>
-                <div class="list__item">
-                    <div class="list__wrapper">
-                        <div class="list__top">
-                            <p class="list__name">Continue project</p>
-                            <div class="list__right">
-                                <p class="list__date">01/01/2022 - 00:00</p>
-                                <input class="list__check" type="checkbox">
-                            </div>
-                        </div>
-                        <div class="list__desc">
-                        </div>
-                    </div>
-                </div>
-                <div class="list__item">
-                    <div class="list__wrapper">
-                        <div class="list__top">
-                            <p class="list__name">Continue project</p>
-                            <div class="list__right">
-                                <p class="list__date">01/01/2022 - 00:00</p>
-                                <input class="list__check" type="checkbox">
-                            </div>
-                        </div>
-                        <div class="list__desc">
-                        </div>
-                    </div>
-                </div>
-                <div class="list__item">
-                    <div class="list__wrapper">
-                        <div class="list__top">
-                            <p class="list__name">Continue project</p>
-                            <div class="list__right">
-                                <p class="list__date">01/01/2022 - 00:00</p>
-                                <input class="list__check" type="checkbox">
-                            </div>
-                        </div>
-                        <div class="list__desc">
-                        </div>
-                    </div>
-                </div>
-                <div class="list__item">
-                    <div class="list__wrapper">
-                        <div class="list__top">
-                            <p class="list__name">Continue project</p>
-                            <div class="list__right">
-                                <p class="list__date">01/01/2022 - 00:00</p>
-                                <input class="list__check" type="checkbox">
-                            </div>
-                        </div>
-                        <div class="list__desc">
-                        </div>
-                    </div>
-                </div>
-                <div class="list__item">
-                    <div class="list__wrapper">
-                        <div class="list__top">
-                            <p class="list__name">Continue project</p>
-                            <div class="list__right">
-                                <p class="list__date">01/01/2022 - 00:00</p>
-                                <input class="list__check" type="checkbox">
-                            </div>
-                        </div>
-                        <div class="list__desc">
                         </div>
                     </div>
                 </div> -->
+            </div>
         </section>
     </main>
 
 </body>
+
 </html>
