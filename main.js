@@ -528,6 +528,398 @@ function styleTagTransform(css, styleElement) {
 
 module.exports = styleTagTransform;
 
+/***/ }),
+
+/***/ "./src/js/checkItem.js":
+/*!*****************************!*\
+  !*** ./src/js/checkItem.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "checkItem": () => (/* binding */ checkItem)
+/* harmony export */ });
+/* harmony import */ var _deleteItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./deleteItem */ "./src/js/deleteItem.js");
+
+
+const checkItem = e => {
+    // ADD FUNCTION TO ADD TO FINISHED TASKS LATER
+
+    (0,_deleteItem__WEBPACK_IMPORTED_MODULE_0__["default"])(e);
+}
+
+
+/***/ }),
+
+/***/ "./src/js/deleteItem.js":
+/*!******************************!*\
+  !*** ./src/js/deleteItem.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/js/projects.js");
+/* harmony import */ var _finders__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./finders */ "./src/js/finders.js");
+
+
+
+
+const deleteItemDOM =  card => card.remove();
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (e => {
+    const card = (0,_finders__WEBPACK_IMPORTED_MODULE_1__.findCurrentCard)(e);
+    const title = (0,_finders__WEBPACK_IMPORTED_MODULE_1__.findTitle)(card);
+
+    deleteItemDOM(card);
+    (0,_projects__WEBPACK_IMPORTED_MODULE_0__.deleteItemFromArray)(title);
+
+    console.log(_projects__WEBPACK_IMPORTED_MODULE_0__.mainList);
+
+});
+
+/***/ }),
+
+/***/ "./src/js/desc.js":
+/*!************************!*\
+  !*** ./src/js/desc.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _finders__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./finders */ "./src/js/finders.js");
+
+
+const expandCard = (item, children) => {
+    item.classList.add("list__item--active");
+    children.forEach(child => {
+        child.classList.add(`${child.classList[0]}--active`);
+    });
+}
+
+const shrinkCard = (item, children) => {
+    item.classList.remove("list__item--active");
+    children.forEach(child => {
+        child.classList.remove(`${child.classList[0]}--active`);
+    });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (e => {
+    const item = (0,_finders__WEBPACK_IMPORTED_MODULE_0__.findCurrentCard)(e);
+    const title = (0,_finders__WEBPACK_IMPORTED_MODULE_0__.findTitle)(item);
+    const children = item.querySelectorAll("div");
+    const currentItem = (0,_finders__WEBPACK_IMPORTED_MODULE_0__.findCurrentItemInArray)(title);
+
+    if (currentItem[0].checkStatus() === 0) expandCard(item, children);
+    else shrinkCard(item, children);
+
+    currentItem[0].changeStatus();
+});
+
+
+/***/ }),
+
+/***/ "./src/js/elements.js":
+/*!****************************!*\
+  !*** ./src/js/elements.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "addItemBox": () => (/* binding */ addItemBox),
+/* harmony export */   "addItemButton": () => (/* binding */ addItemButton),
+/* harmony export */   "addItemExit": () => (/* binding */ addItemExit),
+/* harmony export */   "allButtons": () => (/* binding */ allButtons),
+/* harmony export */   "body": () => (/* binding */ body),
+/* harmony export */   "buttons": () => (/* binding */ buttons),
+/* harmony export */   "date": () => (/* binding */ date),
+/* harmony export */   "desc": () => (/* binding */ desc),
+/* harmony export */   "form": () => (/* binding */ form),
+/* harmony export */   "list": () => (/* binding */ list),
+/* harmony export */   "listItems": () => (/* binding */ listItems),
+/* harmony export */   "time": () => (/* binding */ time),
+/* harmony export */   "title": () => (/* binding */ title)
+/* harmony export */ });
+const addItemButton = document.getElementById("addButton");
+const addItemBox = document.getElementById("addItem");
+const addItemExit = document.getElementById("exit");
+const body = document.querySelector("body");
+const list = document.getElementById("list");
+const form = document.getElementById("todoForm");
+
+const title = document.getElementById("title");
+const desc = document.getElementById("desc");
+const date = document.getElementById("date");
+const time = document.getElementById("time");
+
+const buttons = document.getElementById("prioButtons");
+const allButtons = buttons.querySelectorAll("button");
+
+const listItems = document.getElementById("listItems");
+
+/***/ }),
+
+/***/ "./src/js/finders.js":
+/*!***************************!*\
+  !*** ./src/js/finders.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "findCurrentCard": () => (/* binding */ findCurrentCard),
+/* harmony export */   "findCurrentItemInArray": () => (/* binding */ findCurrentItemInArray),
+/* harmony export */   "findTitle": () => (/* binding */ findTitle)
+/* harmony export */ });
+/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/js/projects.js");
+
+
+const findCurrentCard = e => {
+    let item = e.target;
+
+    while(!item.classList.contains("list__item")) item = item.parentElement;
+    
+    return item;
+};
+
+const findCurrentItemInArray = title => _projects__WEBPACK_IMPORTED_MODULE_0__.mainList.filter(listItem => listItem.title === title);
+
+const findTitle = card => {
+    const child = card.firstChild;
+    const grandChild = child.firstChild;
+    const titleElement = grandChild.firstElementChild
+    const title = titleElement.textContent;
+
+    return title;
+}
+
+/***/ }),
+
+/***/ "./src/js/form.js":
+/*!************************!*\
+  !*** ./src/js/form.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "closeForm": () => (/* binding */ closeForm),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "openForm": () => (/* binding */ openForm)
+/* harmony export */ });
+/* harmony import */ var _elements_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements.js */ "./src/js/elements.js");
+/* harmony import */ var _projects_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./projects.js */ "./src/js/projects.js");
+/* harmony import */ var _todo_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./todo.js */ "./src/js/todo.js");
+
+
+
+
+const openForm = () => {
+    _elements_js__WEBPACK_IMPORTED_MODULE_0__.addItemBox.style.display = "grid";
+    _elements_js__WEBPACK_IMPORTED_MODULE_0__.body.style.pointerEvents = "none";
+    _elements_js__WEBPACK_IMPORTED_MODULE_0__.list.style.overflow = "hidden";
+}
+
+const closeForm = () => {
+    _elements_js__WEBPACK_IMPORTED_MODULE_0__.addItemBox.style.display = "none";
+    _elements_js__WEBPACK_IMPORTED_MODULE_0__.body.style.pointerEvents = "all";
+    _elements_js__WEBPACK_IMPORTED_MODULE_0__.list.style.overflow = "scroll";
+}
+
+const hasDuplicate = title => _projects_js__WEBPACK_IMPORTED_MODULE_1__.mainList.find(item => item.title === title);
+
+let priority = "";
+_elements_js__WEBPACK_IMPORTED_MODULE_0__.allButtons.forEach(button => {
+    button.addEventListener("click", e => {
+        priority = button.id;
+    });
+});
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (form => {
+    form.addEventListener("submit", e => {
+        if(hasDuplicate(_elements_js__WEBPACK_IMPORTED_MODULE_0__.title.value)) {
+            alert("Task names must be different!");
+    
+            e.preventDefault();
+            return;
+        };
+    
+        (0,_todo_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_elements_js__WEBPACK_IMPORTED_MODULE_0__.title.value, _elements_js__WEBPACK_IMPORTED_MODULE_0__.desc.value, _elements_js__WEBPACK_IMPORTED_MODULE_0__.date.value, _elements_js__WEBPACK_IMPORTED_MODULE_0__.time.value, priority, listItems);
+        priority = "";
+        
+        console.log(_projects_js__WEBPACK_IMPORTED_MODULE_1__.mainList);
+        closeForm();
+    });
+});
+
+/***/ }),
+
+/***/ "./src/js/listeners.js":
+/*!*****************************!*\
+  !*** ./src/js/listeners.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
+/* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form */ "./src/js/form.js");
+/* harmony import */ var _deleteItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./deleteItem */ "./src/js/deleteItem.js");
+/* harmony import */ var _desc__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./desc */ "./src/js/desc.js");
+/* harmony import */ var _checkItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./checkItem */ "./src/js/checkItem.js");
+
+
+
+
+
+
+const addGlobalListener = (type, selector, callback) => {
+    document.addEventListener(type, e => {
+        if (e.target.matches(selector)) callback(e);
+    })
+}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (() => {
+    addGlobalListener("click", ".list__top", _desc__WEBPACK_IMPORTED_MODULE_3__["default"]);
+    addGlobalListener("click", ".list__delete", _deleteItem__WEBPACK_IMPORTED_MODULE_2__["default"]);
+    addGlobalListener("click", ".list__check", _checkItem__WEBPACK_IMPORTED_MODULE_4__.checkItem);
+
+    _elements__WEBPACK_IMPORTED_MODULE_0__.addItemButton.addEventListener("click", _form__WEBPACK_IMPORTED_MODULE_1__.openForm);
+    _elements__WEBPACK_IMPORTED_MODULE_0__.addItemExit.addEventListener("click", _form__WEBPACK_IMPORTED_MODULE_1__.closeForm);
+});
+
+/***/ }),
+
+/***/ "./src/js/projects.js":
+/*!****************************!*\
+  !*** ./src/js/projects.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ListItem": () => (/* binding */ ListItem),
+/* harmony export */   "deleteItemFromArray": () => (/* binding */ deleteItemFromArray),
+/* harmony export */   "mainList": () => (/* binding */ mainList)
+/* harmony export */ });
+let mainList = [];
+
+class ListItem {
+    constructor(title, desc, date, time, priority) {
+        this.title = title;
+        this.desc = desc;
+        this.date = date;
+        this.time = time;
+        this.priority = priority;
+        this.active = 0;
+    }
+
+    changeStatus() {
+        if (this.active === 0) this.active = 1;
+        else this.active = 0;
+    }
+
+    checkStatus() {
+        return this.active;
+    }
+}
+
+const deleteItemFromArray = title => {mainList = mainList.filter(item => item.title != title)};
+
+/***/ }),
+
+/***/ "./src/js/todo.js":
+/*!************************!*\
+  !*** ./src/js/todo.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/js/projects.js");
+
+
+
+const createItem = (title, desc, date, time, priority, listItems) => {
+    const itemElement = document.createElement("div");
+    const wrapperElement = document.createElement("div");
+
+    const topElement = document.createElement("div");
+    const titleElement = document.createElement("p");
+    const rightElement = document.createElement("div");
+    const dateElement = document.createElement("p");
+    const checkElement = document.createElement("input");
+
+    const descDiv = document.createElement("div");
+    const descText = document.createElement("div");
+    const descHeader = document.createElement("p");
+    const descr = document.createElement("p");
+
+    const deleteWrapper = document.createElement("div");
+    const deleteButton = document.createElement("button");
+
+    itemElement.classList.add("list__item");
+    wrapperElement.classList.add("list__wrapper");
+    topElement.classList.add("list__top");
+    titleElement.classList.add("list__name");
+    rightElement.classList.add("list__right");
+    dateElement.classList.add("list__date");
+    checkElement.classList.add("list__check");
+    descDiv.classList.add("list__desc");
+    descText.classList.add("list__descText");
+    deleteWrapper.classList.add("list__delete-wrapper");
+    deleteButton.classList.add("list__delete");
+
+    if (priority === "high") topElement.classList.add("list__top--high");
+    else if (priority === "med") topElement.classList.add("list__top--med");
+
+    checkElement.setAttribute("type", "checkbox");
+
+    titleElement.textContent = title;
+    dateElement.textContent = `${date} - ${time}`;
+    descHeader.textContent = "Description";
+    descr.textContent = desc;
+    deleteButton.textContent = "Delete";
+
+    itemElement.append(wrapperElement);
+    wrapperElement.append(topElement);
+    topElement.append(titleElement);
+    topElement.append(rightElement);
+    rightElement.append(dateElement);
+    rightElement.append(checkElement);
+
+    wrapperElement.append(descDiv);
+    descDiv.append(descText);
+    descText.append(descHeader);
+    descText.append(descr);
+    descDiv.append(deleteWrapper);
+    deleteWrapper.append(deleteButton);
+
+    listItems.append(itemElement);
+}
+
+const createItemObj = (title, desc, date, time, priority) => {
+    const item = new _projects__WEBPACK_IMPORTED_MODULE_0__.ListItem(title, desc, date, time, priority);
+    _projects__WEBPACK_IMPORTED_MODULE_0__.mainList.push(item);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((title, desc, date, time, priority, listItems) => {
+    createItem(title, desc, date, time, priority, listItems);
+    createItemObj(title, desc, date, time, priority);
+});
+
 /***/ })
 
 /******/ 	});
@@ -611,232 +1003,25 @@ var __webpack_exports__ = {};
   \*************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/main.scss */ "./src/styles/main.scss");
+/* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form */ "./src/js/form.js");
+/* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
+/* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./todo */ "./src/js/todo.js");
+/* harmony import */ var _listeners__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./listeners */ "./src/js/listeners.js");
 
 
-let mainList = [];
-
-class ListItem {
-    constructor(title, desc, date, time, priority) {
-        this.title = title;
-        this.desc = desc;
-        this.date = date;
-        this.time = time;
-        this.priority = priority;
-        this.active = 0;
-    }
-
-    changeStatus() {
-        if (this.active === 0) this.active = 1;
-        else this.active = 0;
-    }
-
-    checkStatus() {
-        return this.active;
-    }
-}
-
-const createItem = (title, desc, date, time, priority, listItems) => {
-    const itemElement = document.createElement("div");
-    const wrapperElement = document.createElement("div");
-
-    const topElement = document.createElement("div");
-    const titleElement = document.createElement("p");
-    const rightElement = document.createElement("div");
-    const dateElement = document.createElement("p");
-    const checkElement = document.createElement("input");
-
-    const descDiv = document.createElement("div");
-    const descText = document.createElement("div");
-    const descHeader = document.createElement("p");
-    const descr = document.createElement("p");
-
-    const deleteWrapper = document.createElement("div");
-    const deleteButton = document.createElement("button");
-
-    itemElement.classList.add("list__item");
-    wrapperElement.classList.add("list__wrapper");
-    topElement.classList.add("list__top");
-    titleElement.classList.add("list__name");
-    rightElement.classList.add("list__right");
-    dateElement.classList.add("list__date");
-    checkElement.classList.add("list__check");
-    descDiv.classList.add("list__desc");
-    descText.classList.add("list__descText");
-    deleteWrapper.classList.add("list__delete-wrapper");
-    deleteButton.classList.add("list__delete");
-
-    if (priority === "high") topElement.classList.add("list__top--high");
-    else if (priority === "med") topElement.classList.add("list__top--med");
-
-    checkElement.setAttribute("type", "checkbox");
-
-    titleElement.textContent = title;
-    dateElement.textContent = `${date} - ${time}`;
-    descHeader.textContent = "Description";
-    descr.textContent = desc;
-    deleteButton.textContent = "Delete";
-
-    itemElement.append(wrapperElement);
-    wrapperElement.append(topElement);
-    topElement.append(titleElement);
-    topElement.append(rightElement);
-    rightElement.append(dateElement);
-    rightElement.append(checkElement);
-
-    wrapperElement.append(descDiv);
-    descDiv.append(descText);
-    descText.append(descHeader);
-    descText.append(descr);
-    descDiv.append(deleteWrapper);
-    deleteWrapper.append(deleteButton);
-
-    listItems.append(itemElement);
-}
 
 
-const openForm = () => {
-    addItemBox.style.display = "grid";
-    body.style.pointerEvents = "none";
-    list.style.overflow = "hidden";
-}
 
-const closeForm = () => {
-    addItemBox.style.display = "none";
-    body.style.pointerEvents = "all";
-    list.style.overflow = "scroll";
-}
 
-const createItemObj = (title, desc, date, time, priority) => {
-    const item = new ListItem(title, desc, date, time, priority);
-    mainList.push(item);
-}
 
-const hasDuplicate = title => mainList.find(item => item.title === title);
+(0,_listeners__WEBPACK_IMPORTED_MODULE_4__["default"])();
 
-const createTodo = (title, desc, date, time, priority, listItems) => {
-    createItem(title, desc, date, time, priority, listItems);
-    createItemObj(title, desc, date, time, priority);
-}
+(0,_todo__WEBPACK_IMPORTED_MODULE_3__["default"])("title", "desc", "date", "time", "priority", _elements__WEBPACK_IMPORTED_MODULE_2__.listItems);
+(0,_todo__WEBPACK_IMPORTED_MODULE_3__["default"])("title1", "desc1", "date1", "time1", "priority1", _elements__WEBPACK_IMPORTED_MODULE_2__.listItems);
+(0,_todo__WEBPACK_IMPORTED_MODULE_3__["default"])("title2", "desc2", "date2", "time2", "priority2", _elements__WEBPACK_IMPORTED_MODULE_2__.listItems);
+(0,_todo__WEBPACK_IMPORTED_MODULE_3__["default"])("title3", "desc3", "date3", "time3", "priority3", _elements__WEBPACK_IMPORTED_MODULE_2__.listItems);
 
-const findTitle = card => {
-    const child = card.firstChild;
-    const grandChild = child.firstChild;
-    const titleElement = grandChild.firstElementChild
-    const title = titleElement.textContent;
-
-    return title;
-}
-
-const expandCard = (item, children) => {
-    item.classList.add("list__item--active");
-    children.forEach(child => {
-        child.classList.add(`${child.classList[0]}--active`);
-    });
-}
-
-const shrinkCard = (item, children) => {
-    item.classList.remove("list__item--active");
-    children.forEach(child => {
-        child.classList.remove(`${child.classList[0]}--active`);
-    });
-}
-
-const addGlobalListener = (type, selector, callback) => {
-    document.addEventListener(type, e => {
-        if(e.target.matches(selector)) callback(e);
-    })
-}
-
-const expandShrinkToggle = e => {
-    const item = findCurrentCard(e);
-    const title = findTitle(item);
-    const children = item.querySelectorAll("div");
-    const currentItem = findCurrentItemInArray(title);
-
-    if (currentItem[0].checkStatus() === 0) expandCard(item, children);
-    else shrinkCard(item, children);
-
-    currentItem[0].changeStatus();
-}
-
-const findCurrentItemInArray = title => mainList.filter(listItem => listItem.title === title);
-
-const findCurrentCard = e => {
-    let item = e.target;
-
-    while(!item.classList.contains("list__item")) item = item.parentElement;
-    
-    return item;
-};
-
-const deleteItemFromArray = title => {mainList = mainList.filter(item => item.title != title)};
-
-const deleteItemDOM =  card => card.remove();
-
-const deleteItem = e => {
-    const card = findCurrentCard(e);
-    const title = findTitle(card);
-
-    deleteItemDOM(card);
-    deleteItemFromArray(title);
-}
-
-const checkItem = e => {
-    // ADD FUNCTION TO ADD TO FINISHED TASKS LATER
-
-    deleteItem(e);
-}
-
-const addItemButton = document.getElementById("addButton");
-const addItemBox = document.getElementById("addItem");
-const addItemExit = document.getElementById("exit");
-const body = document.querySelector("body");
-const list = document.getElementById("list");
-const form = document.getElementById("todoForm");
-
-const title = document.getElementById("title");
-const desc = document.getElementById("desc");
-const date = document.getElementById("date");
-const time = document.getElementById("time");
-
-const buttons = document.getElementById("prioButtons");
-const allButtons = buttons.querySelectorAll("button");
-
-const listItems = document.getElementById("listItems");
-
-addGlobalListener("click", ".list__top", expandShrinkToggle);
-addGlobalListener("click", ".list__delete", deleteItem);
-addGlobalListener("click", ".list__check", checkItem);
-
-let priority = "";
-allButtons.forEach(button => {
-    button.addEventListener("click", e => {
-        priority = button.id;
-    });
-});
-
-addItemButton.addEventListener("click", openForm);
-addItemExit.addEventListener("click", closeForm);
-
-createTodo("title", "desc", "date", "time", "priority", listItems);
-createTodo("title1", "desc1", "date1", "time1", "priority1", listItems);
-createTodo("title2", "desc2", "date2", "time2", "priority2", listItems);
-createTodo("title3", "desc3", "date3", "time3", "priority3", listItems);
-
-form.addEventListener("submit", e => {
-    if(hasDuplicate(title.value)) {
-        alert("Task names must be different!");
-
-        e.preventDefault();
-        return;
-    };
-
-    createTodo(title.value, desc.value, date.value, time.value, priority, listItems);
-    priority = "";
-
-    closeForm();
-});
-
+(0,_form__WEBPACK_IMPORTED_MODULE_1__["default"])(_elements__WEBPACK_IMPORTED_MODULE_2__.form);
 })();
 
 /******/ })()
