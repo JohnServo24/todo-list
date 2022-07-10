@@ -626,7 +626,7 @@ class ListItem {
     }
 
     changeStatus() {
-        if(this.active === 0) this.active = 1;
+        if (this.active === 0) this.active = 1;
         else this.active = 0;
     }
 
@@ -711,6 +711,79 @@ const createItemObj = (title, desc, date, time, priority) => {
     mainList.push(item);
 }
 
+const createTodo = (title, desc, date, time, priority, listItems) => {
+    createItem(title, desc, date, time, priority, listItems);
+    createItemObj(title, desc, date, time, priority);
+}
+
+// Only works on elements with .list__top
+const findTitle = card => {
+    const child = card.firstChild;
+    const grandChild = child.firstChild;
+    const titleElement = grandChild.firstElementChild
+    const title = titleElement.textContent;
+
+    return title;
+}
+
+const expandCard = (item, children) => {
+    item.classList.add("list__item--active");
+    children.forEach(child => {
+        child.classList.add(`${child.classList[0]}--active`);
+    });
+}
+
+const shrinkCard = (item, children) => {
+    item.classList.remove("list__item--active");
+    children.forEach(child => {
+        child.classList.remove(`${child.classList[0]}--active`);
+    });
+}
+
+const addGlobalListener = (type, selector, callback) => {
+    document.addEventListener(type, e => {
+        if(e.target.matches(selector)) callback(e);
+    })
+}
+
+const expandShrinkToggle = e => {
+    const item = findCurrentCard(e);
+    const title = findTitle(item);
+    const children = selectAllDivChildren(item);
+    const currentItem = findCurrentItemInArray(title);
+
+    if (currentItem[0].checkStatus() === 0) expandCard(item, children);
+    else shrinkCard(item, children);
+
+    currentItem[0].changeStatus();
+
+    console.log(mainList);
+}
+
+const findCurrentItemInArray = title => mainList.filter(listItem => listItem.title === title);
+
+const findCurrentCard = e => {
+    let item = e.target;
+
+    while(!item.classList.contains("list__item")) item = item.parentElement;
+    
+    return item;
+};
+
+const selectAllDivChildren = item => item.querySelectorAll("div");
+
+const deleteItemFromArray = title => {mainList = mainList.filter(item => item.title != title)};
+
+const deleteItemDOM =  card => {while(card.firstChild) card.removeChild(card.firstChild)};
+
+const deleteItem = e => {
+    const card = findCurrentCard(e);
+    const title = findTitle(card);
+
+    deleteItemDOM(card);
+    deleteItemFromArray(title);
+}
+
 const addItemButton = document.getElementById("addButton");
 const addItemBox = document.getElementById("addItem");
 const addItemExit = document.getElementById("exit");
@@ -727,34 +800,9 @@ const buttons = document.getElementById("prioButtons");
 const allButtons = buttons.querySelectorAll("button");
 
 const listItems = document.getElementById("listItems");
-const items = listItems.querySelectorAll(".list__item");
 
-document.addEventListener("click", e => {
-    if (e.target.matches('.list__top')) {
-        const element = e.target;
-        const firstChild = element.firstElementChild
-        const title = firstChild.textContent;
-
-        const currentItem = mainList.filter(listItem => listItem.title === title);
-
-        const item = e.target.parentElement.parentElement;
-        const children = item.querySelectorAll("div");
-
-        if(currentItem[0].checkStatus() === 0) {
-            item.classList.add("list__item--active");
-            children.forEach(child => {
-                child.classList.add(`${child.classList[0]}--active`);
-            });
-        } else {
-            item.classList.remove("list__item--active");
-            children.forEach(child => {
-                child.classList.remove(`${child.classList[0]}--active`);
-            });
-        }
-
-        currentItem[0].changeStatus();
-    }
-});
+addGlobalListener("click", ".list__top", expandShrinkToggle);
+addGlobalListener("click", ".list__delete", deleteItem);
 
 let priority = "";
 allButtons.forEach(button => {
@@ -766,8 +814,10 @@ allButtons.forEach(button => {
 addItemButton.addEventListener("click", openForm);
 addItemExit.addEventListener("click", closeForm);
 
-createItem("title.value", "desc.value", "date.value", "time.value", "priority", listItems);
-createItemObj("title.value", "desc.value", "date.value", "time.value", "priority");
+createTodo("title", "desc", "date", "time", "priority", listItems);
+createTodo("title1", "desc1", "date1", "time1", "priority1", listItems);
+createTodo("title2", "desc2", "date2", "time2", "priority2", listItems);
+createTodo("title3", "desc3", "date3", "time3", "priority3", listItems);
 
 form.addEventListener("submit", e => {
     createItem(title.value, desc.value, date.value, time.value, priority, listItems);
