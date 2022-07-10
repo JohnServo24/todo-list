@@ -172,6 +172,12 @@ const deleteItem = e => {
     deleteItemFromArray(title);
 }
 
+const checkItem = e => {
+    // ADD FUNCTION TO ADD TO FINISHED TASKS LATER
+
+    deleteItem(e);
+}
+
 const addItemButton = document.getElementById("addButton");
 const addItemBox = document.getElementById("addItem");
 const addItemExit = document.getElementById("exit");
@@ -189,10 +195,9 @@ const allButtons = buttons.querySelectorAll("button");
 
 const listItems = document.getElementById("listItems");
 
-const duplicateErrorMessage = document.getElementById("duplicateErrorMessage");
-
 addGlobalListener("click", ".list__top", expandShrinkToggle);
 addGlobalListener("click", ".list__delete", deleteItem);
+addGlobalListener("click", ".list__check", checkItem);
 
 let priority = "";
 allButtons.forEach(button => {
