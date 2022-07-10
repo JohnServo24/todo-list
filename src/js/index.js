@@ -103,7 +103,6 @@ const createTodo = (title, desc, date, time, priority, listItems) => {
     createItemObj(title, desc, date, time, priority);
 }
 
-// Only works on elements with .list__top
 const findTitle = card => {
     const child = card.firstChild;
     const grandChild = child.firstChild;
@@ -161,7 +160,10 @@ const selectAllDivChildren = item => item.querySelectorAll("div");
 
 const deleteItemFromArray = title => {mainList = mainList.filter(item => item.title != title)};
 
-const deleteItemDOM =  card => {while(card.firstChild) card.removeChild(card.firstChild)};
+const deleteItemDOM =  card => {
+    while(card.firstChild) card.removeChild(card.firstChild);
+    card.remove();
+};
 
 const deleteItem = e => {
     const card = findCurrentCard(e);
@@ -207,8 +209,7 @@ createTodo("title2", "desc2", "date2", "time2", "priority2", listItems);
 createTodo("title3", "desc3", "date3", "time3", "priority3", listItems);
 
 form.addEventListener("submit", e => {
-    createItem(title.value, desc.value, date.value, time.value, priority, listItems);
-    createItemObj(title.value, desc.value, date.value, time.value, priority);
+    createTodo(title.value, desc.value, date.value, time.value, priority, listItems);
     priority = "";
 
     closeForm();

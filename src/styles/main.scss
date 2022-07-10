@@ -99,6 +99,8 @@ main {
         font-size: 1.5rem;
 
         &--active {
+            background-color: $list-highlight-color;
+
             border-bottom-right-radius: 15px;
             border-bottom-left-radius: 15px;
         }
