@@ -15,6 +15,52 @@ $text-color: #FFF;
     }
 }
 
+@mixin form-display() {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: all;
+}
+
+@mixin form-box() {
+    background-color: $secondary-color;
+    border: 2px solid $accent-color;
+    width: 70vw;
+    border-radius: 5px;
+}
+
+@mixin form-top() {
+    background-color: $accent-color;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+
+    h1 {
+        font-size: 2rem;
+        cursor: default;
+    }
+}
+
+@mixin form-position() {
+    padding: 1rem;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin form-submit-button() {
+    background-color: $important-color;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    padding: 1rem 3rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    align-self: center;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -60,7 +106,7 @@ main {
     width: 280px;
 
     &__main {
-        padding-bottom: 1rem;
+        padding: 1rem 0;
         border-bottom: 1px solid $primary-color;
     }
 
@@ -185,39 +231,20 @@ main {
 }
 
 .add {
-    display: none;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: all;
+    @include form-display();
 
 
     &__box {
-        background-color: $secondary-color;
-        border: 2px solid $accent-color;
-        width: 70vw;
-        border-radius: 5px;
+        @include form-box();
     }
 
 
     &__top {
-        background-color: $accent-color;
-        padding: 0.5rem 1rem;
-        display: flex;
-        justify-content: space-between;
-
-        h1 {
-            font-size: 2rem;
-            cursor: default;
-        }
+        @include form-top();
     }
 
     &__form {
-        padding: 1rem;
-        font-size: 1.2rem;
-        display: flex;
-        flex-direction: column;
+        @include form-position();
 
         input,
         textarea {
@@ -241,7 +268,8 @@ main {
             resize: none;
         }
 
-        input[type="date"], input[type="time"] {
+        input[type="date"],
+        input[type="time"] {
             font-size: 1.2rem;
             border-radius: 4px;
             padding: 0.2rem;
@@ -268,14 +296,38 @@ main {
         }
 
         button[type="submit"] {
-            background-color: $important-color;
-            font-size: 1.2rem;
-            font-weight: bold;
+            @include form-submit-button();
+        }
+
+    }
+}
+
+.add-proj {
+    @include form-display();
+    
+    &__box {
+        @include form-box();
+    }
+
+
+    &__top {
+        @include form-top();
+    }
+
+    &__form {
+        @include form-position();
+
+        input {
+            margin-bottom: 1rem;
+            background-color: $primary-color;
             border: none;
-            padding: 1rem 3rem;
-            border-radius: 5px;
-            margin-top: 1rem;
-            align-self: center;
+            display: block;
+            width: 100%;
+            font-size: 1.5rem;
+        }
+
+        button {
+            @include form-submit-button();
         }
 
     }

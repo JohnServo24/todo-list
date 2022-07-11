@@ -20,13 +20,11 @@
         <nav class="sidebar">
             <div class="sidebar__main">
                 <ul class="sidebar__list">
-                    <li class="sidebar__item">All Tasks</li>
                     <li class="sidebar__item sidebar__item--active">Main Tasks</li>
-                    <li class="sidebar__item">Finished Tasks</li>
                 </ul>
             </div>
             <div class="sidebar__projects">
-                <p>Create a Project</p>
+                <p id="projectButton">Create a Project</p>
                 <ul class="sidebar__list">
                     <li class="sidebar__item">Project #1</li>
                     <li class="sidebar__item">Project #2</li>
@@ -63,6 +61,20 @@
                         </div>
 
                         <button type="submit">ADD TO DO</button>
+                    </form>
+                </div>
+            </div>
+            <div class="add-proj" id="addProj">
+                <div class="add-proj__box">
+                    <div class="add-proj__top">
+                        <h1>Create a new Project</h1>
+                        <h1 id="exitProject">X</h1>
+                    </div>
+
+                    <form action="/" class="add-proj__form" id="projectForm" onsubmit="return false">
+                        <input type="text" id="title" placeholder="Project Name..." required>
+
+                        <button type="submit">ADD Project</button>
                     </form>
                 </div>
             </div>

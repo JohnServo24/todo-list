@@ -14,3 +14,8 @@ export const buttons = document.getElementById("prioButtons");
 export const allButtons = buttons.querySelectorAll("button");
 
 export const listItems = document.getElementById("listItems");
+
+export const addProjBox = document.getElementById("addProj");
+export const projectButton = document.getElementById("projectButton");
+export const exitProject = document.getElementById("exitProject")
+export const projectForm = document.getElementById("projectForm");

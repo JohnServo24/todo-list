@@ -1,3 +1,5 @@
+import { addProjBox } from "./elements";
+
 export let mainList = [];
 
 export class ListItem {
@@ -21,3 +23,15 @@ export class ListItem {
 }
 
 export const deleteItemFromArray = title => {mainList = mainList.filter(item => item.title != title)};
+
+export const openProject = () => {
+    addProjBox.style.display = "grid";
+    body.style.pointerEvents = "none";
+    list.style.overflow = "hidden";
+}
+
+export const closeProject = () => {
+    addProjBox.style.display = "none";
+    body.style.pointerEvents = "all";
+    list.style.overflow = "scroll";
+}
