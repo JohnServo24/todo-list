@@ -721,6 +721,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "closeForm": () => (/* binding */ closeForm),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "disableScreen": () => (/* binding */ disableScreen),
+/* harmony export */   "enableScreen": () => (/* binding */ enableScreen),
 /* harmony export */   "openForm": () => (/* binding */ openForm)
 /* harmony export */ });
 /* harmony import */ var _elements_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements.js */ "./src/js/elements.js");
@@ -730,16 +732,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const openForm = () => {
-    _elements_js__WEBPACK_IMPORTED_MODULE_0__.addItemBox.style.display = "grid";
+const disableScreen = () => {
     _elements_js__WEBPACK_IMPORTED_MODULE_0__.body.style.pointerEvents = "none";
     _elements_js__WEBPACK_IMPORTED_MODULE_0__.list.style.overflow = "hidden";
 }
 
-const closeForm = () => {
-    _elements_js__WEBPACK_IMPORTED_MODULE_0__.addItemBox.style.display = "none";
+const enableScreen = () => {
     _elements_js__WEBPACK_IMPORTED_MODULE_0__.body.style.pointerEvents = "all";
     _elements_js__WEBPACK_IMPORTED_MODULE_0__.list.style.overflow = "scroll";
+}
+
+const openForm = () => {
+    _elements_js__WEBPACK_IMPORTED_MODULE_0__.addItemBox.style.display = "grid";
+    disableScreen();
+}
+
+const closeForm = () => {
+    _elements_js__WEBPACK_IMPORTED_MODULE_0__.addItemBox.style.display = "none";
+    enableScreen();
 }
 
 const hasDuplicate = title => _projects_js__WEBPACK_IMPORTED_MODULE_1__.mainList.find(item => item.title === title);
@@ -829,6 +839,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "openProject": () => (/* binding */ openProject)
 /* harmony export */ });
 /* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
+/* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form */ "./src/js/form.js");
+
 
 
 let mainList = [];
@@ -857,14 +869,12 @@ const deleteItemFromArray = title => {mainList = mainList.filter(item => item.ti
 
 const openProject = () => {
     _elements__WEBPACK_IMPORTED_MODULE_0__.addProjBox.style.display = "grid";
-    body.style.pointerEvents = "none";
-    list.style.overflow = "hidden";
+    (0,_form__WEBPACK_IMPORTED_MODULE_1__.disableScreen)();
 }
 
 const closeProject = () => {
     _elements__WEBPACK_IMPORTED_MODULE_0__.addProjBox.style.display = "none";
-    body.style.pointerEvents = "all";
-    list.style.overflow = "scroll";
+    (0,_form__WEBPACK_IMPORTED_MODULE_1__.enableScreen)();
 }
 
 /***/ }),

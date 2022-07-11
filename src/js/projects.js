@@ -1,4 +1,5 @@
 import { addProjBox } from "./elements";
+import { disableScreen, enableScreen } from "./form";
 
 export let mainList = [];
 
@@ -26,12 +27,10 @@ export const deleteItemFromArray = title => {mainList = mainList.filter(item => 
 
 export const openProject = () => {
     addProjBox.style.display = "grid";
-    body.style.pointerEvents = "none";
-    list.style.overflow = "hidden";
+    disableScreen();
 }
 
 export const closeProject = () => {
     addProjBox.style.display = "none";
-    body.style.pointerEvents = "all";
-    list.style.overflow = "scroll";
+    enableScreen();
 }

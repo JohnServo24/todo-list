@@ -2,16 +2,24 @@ import {addItemBox, body, list, allButtons, title, desc, date, time} from "./ele
 import { mainList } from "./projects.js";
 import createTodo from "./todo.js";
 
-export const openForm = () => {
-    addItemBox.style.display = "grid";
+export const disableScreen = () => {
     body.style.pointerEvents = "none";
     list.style.overflow = "hidden";
 }
 
-export const closeForm = () => {
-    addItemBox.style.display = "none";
+export const enableScreen = () => {
     body.style.pointerEvents = "all";
     list.style.overflow = "scroll";
+}
+
+export const openForm = () => {
+    addItemBox.style.display = "grid";
+    disableScreen();
+}
+
+export const closeForm = () => {
+    addItemBox.style.display = "none";
+    enableScreen();
 }
 
 const hasDuplicate = title => mainList.find(item => item.title === title);
