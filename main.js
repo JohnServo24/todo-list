@@ -741,6 +741,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _elements_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements.js */ "./src/js/elements.js");
 /* harmony import */ var _projects_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./projects.js */ "./src/js/projects.js");
 /* harmony import */ var _todo_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./todo.js */ "./src/js/todo.js");
+/* harmony import */ var _listeners__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./listeners */ "./src/js/listeners.js");
+
 
 
 
@@ -783,10 +785,9 @@ _elements_js__WEBPACK_IMPORTED_MODULE_0__.allButtons.forEach(button => {
             return;
         };
     
-        (0,_todo_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_elements_js__WEBPACK_IMPORTED_MODULE_0__.title.value, _elements_js__WEBPACK_IMPORTED_MODULE_0__.desc.value, _elements_js__WEBPACK_IMPORTED_MODULE_0__.date.value, _elements_js__WEBPACK_IMPORTED_MODULE_0__.time.value, priority, listItems);
+        (0,_todo_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_elements_js__WEBPACK_IMPORTED_MODULE_0__.title.value, _elements_js__WEBPACK_IMPORTED_MODULE_0__.desc.value, _elements_js__WEBPACK_IMPORTED_MODULE_0__.date.value, _elements_js__WEBPACK_IMPORTED_MODULE_0__.time.value, priority, listItems, _listeners__WEBPACK_IMPORTED_MODULE_3__.activeProject);
         priority = "";
-        
-        console.log(_projects_js__WEBPACK_IMPORTED_MODULE_1__.mainList);
+
         closeForm();
     });
 });
@@ -851,6 +852,7 @@ let activeProject = "";
             (0,_todo_js__WEBPACK_IMPORTED_MODULE_6__.createItem)(item.title, item.desc, item.date, item.time, item.priority, _elements__WEBPACK_IMPORTED_MODULE_0__.listItems);
         })
         
+        console.log(currentProject);
         
     });
 
@@ -885,6 +887,37 @@ __webpack_require__.r(__webpack_exports__);
 let mainList = [];
 
 let listOfProjects = {
+    "Main Tasks": [{
+        title: "title",
+        desc: "desc",
+        date: "date",
+        time: "time",
+        priority: "high",
+        active: 0
+    },
+    {
+        title: "title1",
+        desc: "desc1",
+        date: "date1",
+        time: "time1",
+        priority: "med",
+        active: 0
+    },
+    {
+        title: "title2",
+        desc: "desc2",
+        date: "date2",
+        time: "time2",
+        priority: "",
+        active: 0
+    }, {
+        title: "title3",
+        desc: "desc3",
+        date: "date3",
+        time: "time3",
+        priority: "",
+        active: 0
+    },],
     "Project #1": [{
         title: "title",
         desc: "desc",
@@ -983,7 +1016,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/js/projects.js");
 
 
-
 const createItem = (title, desc, date, time, priority, listItems) => {
     const itemElement = document.createElement("div");
     const wrapperElement = document.createElement("div");
@@ -1042,14 +1074,14 @@ const createItem = (title, desc, date, time, priority, listItems) => {
     listItems.append(itemElement);
 }
 
-const createItemObj = (title, desc, date, time, priority) => {
+const createItemObj = (title, desc, date, time, priority, activeProject) => {
     const item = new _projects__WEBPACK_IMPORTED_MODULE_0__.ListItem(title, desc, date, time, priority);
-    _projects__WEBPACK_IMPORTED_MODULE_0__.mainList.push(item);
+    _projects__WEBPACK_IMPORTED_MODULE_0__.listOfProjects[activeProject].push(item);
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((title, desc, date, time, priority, listItems) => {
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((title, desc, date, time, priority, listItems, activeProject) => {
     createItem(title, desc, date, time, priority, listItems);
-    createItemObj(title, desc, date, time, priority);
+    createItemObj(title, desc, date, time, priority, activeProject);
 });
 
 /***/ })
