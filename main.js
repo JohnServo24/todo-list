@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n  font-family: Arial;\n  color: #FFF;\n}\n\nbody,\nhtml {\n  height: 100vh;\n}\n\n.header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  min-height: 8vh;\n  padding: 0 2rem;\n  background-color: #041C32;\n}\n.header__button {\n  width: 65px;\n  height: 65px;\n  font-size: 3rem;\n  border-radius: 50%;\n  border: 0;\n  background-color: #ECB365;\n}\n\nmain {\n  display: flex;\n  height: 92vh;\n  background-color: #04293A;\n}\n\n.sidebar {\n  background-color: #064663;\n  font-size: 1.4rem;\n  width: 280px;\n}\n.sidebar__main {\n  padding: 1rem 0;\n  border-bottom: 1px solid #041C32;\n}\n.sidebar__projects {\n  text-align: center;\n}\n.sidebar__projects p {\n  padding: 1rem;\n}\n.sidebar__projects p:hover {\n  transition: 0.4s;\n  background-color: #041C32;\n  cursor: pointer;\n}\n.sidebar__item {\n  padding: 1rem;\n}\n.sidebar__item--active {\n  font-weight: 900;\n  background-color: #ECB365;\n}\n.sidebar__item:hover {\n  transition: 0.4s;\n  background-color: #ECB365;\n  cursor: pointer;\n}\n\n.list {\n  width: 100%;\n  overflow: scroll;\n}\n.list__items {\n  padding: 1rem;\n}\n.list__item {\n  margin-bottom: 0.5rem;\n  background-color: #041C32;\n  font-size: 1.5rem;\n}\n.list__item--active {\n  background-color: #031d36;\n  border-bottom-right-radius: 15px;\n  border-bottom-left-radius: 15px;\n}\n.list__item:hover {\n  transition: 0.4s;\n  background-color: #031d36;\n  cursor: pointer;\n}\n.list__wrapper {\n  width: 100%;\n}\n.list__top {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem;\n}\n.list__top--high {\n  border-left: 5px solid #A10035;\n}\n.list__top--med {\n  border-left: 5px solid #FFE7BF;\n}\n.list__top--active {\n  padding-bottom: 1rem;\n  border-bottom: 1px solid #04293A;\n}\n.list__right {\n  display: flex;\n}\n.list__check {\n  width: 50px;\n  accent-color: #ECB365;\n}\n.list__desc {\n  display: none;\n  padding: 1rem;\n  padding-top: 1rem;\n  border-bottom-right-radius: 15px;\n  border-bottom-left-radius: 15px;\n}\n.list__desc--active {\n  display: block;\n}\n.list__descText {\n  padding-bottom: 1rem;\n}\n.list__descText :first-child {\n  font-weight: 700;\n  padding-bottom: 0.5rem;\n}\n.list__descText :last-child {\n  font-size: 1.3rem;\n}\n.list__delete-wrapper {\n  text-align: right;\n}\n.list__delete {\n  margin-top: 1rem;\n  font-size: 1.5rem;\n  font-weight: 700;\n  background-color: #A10035;\n  text-align: center;\n  border-radius: 5px;\n  padding: 0.5rem;\n  border: 0;\n}\n\n.add {\n  display: none;\n  position: fixed;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  pointer-events: all;\n}\n.add__box {\n  background-color: #04293A;\n  border: 2px solid #064663;\n  width: 70vw;\n  border-radius: 5px;\n}\n.add__top {\n  background-color: #064663;\n  padding: 0.5rem 1rem;\n  display: flex;\n  justify-content: space-between;\n}\n.add__top h1 {\n  font-size: 2rem;\n  cursor: default;\n}\n.add__form {\n  padding: 1rem;\n  font-size: 1.2rem;\n  display: flex;\n  flex-direction: column;\n}\n.add__form input,\n.add__form textarea {\n  margin-bottom: 1rem;\n  background-color: #041C32;\n  border: none;\n}\n.add__form input[type=text],\n.add__form textarea {\n  display: block;\n  width: 100%;\n}\n.add__form input[type=text] {\n  font-size: 1.5rem;\n}\n.add__form textarea {\n  font-size: 1.2rem;\n  resize: none;\n}\n.add__form input[type=date],\n.add__form input[type=time] {\n  font-size: 1.2rem;\n  border-radius: 4px;\n  padding: 0.2rem;\n  border: 1px solid #064663;\n}\n.add__form button[type=button] {\n  padding: 0.2rem 1rem;\n  border: none;\n}\n.add__form #low {\n  background-color: #064663;\n}\n.add__form #med {\n  background-color: #FFE7BF;\n  color: #041C32;\n}\n.add__form #high {\n  background-color: #A10035;\n}\n.add__form button[type=submit] {\n  background-color: #ECB365;\n  font-size: 1.2rem;\n  font-weight: bold;\n  border: none;\n  padding: 1rem 3rem;\n  border-radius: 5px;\n  margin-top: 1rem;\n  align-self: center;\n}\n\n.add-proj {\n  display: none;\n  position: fixed;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  pointer-events: all;\n}\n.add-proj__box {\n  background-color: #04293A;\n  border: 2px solid #064663;\n  width: 70vw;\n  border-radius: 5px;\n}\n.add-proj__top {\n  background-color: #064663;\n  padding: 0.5rem 1rem;\n  display: flex;\n  justify-content: space-between;\n}\n.add-proj__top h1 {\n  font-size: 2rem;\n  cursor: default;\n}\n.add-proj__form {\n  padding: 1rem;\n  font-size: 1.2rem;\n  display: flex;\n  flex-direction: column;\n}\n.add-proj__form input {\n  margin-bottom: 1rem;\n  background-color: #041C32;\n  border: none;\n  display: block;\n  width: 100%;\n  font-size: 1.5rem;\n}\n.add-proj__form button {\n  background-color: #ECB365;\n  font-size: 1.2rem;\n  font-weight: bold;\n  border: none;\n  padding: 1rem 3rem;\n  border-radius: 5px;\n  margin-top: 1rem;\n  align-self: center;\n}", "",{"version":3,"sources":["webpack://./src/styles/main.scss"],"names":[],"mappings":"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","sourcesContent":["$primary-color: #041C32;\n$secondary-color: #04293A;\n$accent-color: #064663;\n$important-color: #ECB365;\n$highprio-color: #A10035;\n$medprio-color: #FFE7BF;\n$list-highlight-color: #031d36;\n$text-color: #FFF;\n\n@mixin sidebar-hover($color) {\n    &:hover {\n        transition: 0.4s;\n        background-color: $color;\n        cursor: pointer;\n    }\n}\n\n@mixin form-display() {\n    display: none;\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    pointer-events: all;\n}\n\n@mixin form-box() {\n    background-color: $secondary-color;\n    border: 2px solid $accent-color;\n    width: 70vw;\n    border-radius: 5px;\n}\n\n@mixin form-top() {\n    background-color: $accent-color;\n    padding: 0.5rem 1rem;\n    display: flex;\n    justify-content: space-between;\n\n    h1 {\n        font-size: 2rem;\n        cursor: default;\n    }\n}\n\n@mixin form-position() {\n    padding: 1rem;\n    font-size: 1.2rem;\n    display: flex;\n    flex-direction: column;\n}\n\n@mixin form-submit-button() {\n    background-color: $important-color;\n    font-size: 1.2rem;\n    font-weight: bold;\n    border: none;\n    padding: 1rem 3rem;\n    border-radius: 5px;\n    margin-top: 1rem;\n    align-self: center;\n}\n\n* {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n    font-family: Arial;\n    color: $text-color;\n}\n\nbody,\nhtml {\n    height: 100vh;\n}\n\n.header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n\n    min-height: 8vh;\n    padding: 0 2rem;\n    background-color: $primary-color;\n\n    &__button {\n        width: 65px;\n        height: 65px;\n        font-size: 3rem;\n        border-radius: 50%;\n        border: 0;\n        background-color: $important-color;\n    }\n}\n\nmain {\n    display: flex;\n    height: 92vh;\n\n    background-color: $secondary-color;\n}\n\n.sidebar {\n    background-color: $accent-color;\n    font-size: 1.4rem;\n    width: 280px;\n\n    &__main {\n        padding: 1rem 0;\n        border-bottom: 1px solid $primary-color;\n    }\n\n    &__projects {\n        text-align: center;\n\n        p {\n            padding: 1rem;\n            @include sidebar-hover($primary-color);\n        }\n    }\n\n    &__item {\n        padding: 1rem;\n\n        &--active {\n            font-weight: 900;\n            background-color: $important-color;\n        }\n\n        @include sidebar-hover($important-color);\n    }\n}\n\n.list {\n    width: 100%;\n    overflow: scroll; // CHANGE TO HIDE DURING ADDING\n\n    &__items {\n        padding: 1rem;\n    }\n\n    &__item {\n        margin-bottom: 0.5rem;\n        background-color: $primary-color;\n        font-size: 1.5rem;\n\n        &--active {\n            background-color: $list-highlight-color;\n\n            border-bottom-right-radius: 15px;\n            border-bottom-left-radius: 15px;\n        }\n\n        @include sidebar-hover($list-highlight-color);\n    }\n\n    &__wrapper {\n        width: 100%;\n    }\n\n    &__top {\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n        padding: 1rem;\n\n        &--high {\n            border-left: 5px solid $highprio-color;\n        }\n\n        &--med {\n            border-left: 5px solid $medprio-color;\n        }\n\n        &--active {\n            padding-bottom: 1rem;\n            border-bottom: 1px solid $secondary-color;\n        }\n    }\n\n    &__right {\n        display: flex;\n    }\n\n    &__check {\n        width: 50px;\n        accent-color: $important-color;\n    }\n\n    &__desc {\n        display: none;\n\n        padding: 1rem;\n        padding-top: 1rem;\n        border-bottom-right-radius: 15px;\n        border-bottom-left-radius: 15px;\n\n        &--active {\n            display: block;\n        }\n    }\n\n    &__descText {\n        padding-bottom: 1rem;\n\n        :first-child {\n            font-weight: 700;\n            padding-bottom: 0.5rem;\n        }\n\n        :last-child {\n            font-size: 1.3rem;\n        }\n    }\n\n\n    &__delete-wrapper {\n        text-align: right;\n    }\n\n    &__delete {\n        margin-top: 1rem;\n        font-size: 1.5rem;\n        font-weight: 700;\n        background-color: $highprio-color;\n        text-align: center;\n        border-radius: 5px;\n        padding: 0.5rem;\n        border: 0;\n    }\n}\n\n.add {\n    @include form-display();\n\n\n    &__box {\n        @include form-box();\n    }\n\n\n    &__top {\n        @include form-top();\n    }\n\n    &__form {\n        @include form-position();\n\n        input,\n        textarea {\n            margin-bottom: 1rem;\n            background-color: $primary-color;\n            border: none;\n        }\n\n        input[type=\"text\"],\n        textarea {\n            display: block;\n            width: 100%;\n        }\n\n        input[type=\"text\"] {\n            font-size: 1.5rem;\n        }\n\n        textarea {\n            font-size: 1.2rem;\n            resize: none;\n        }\n\n        input[type=\"date\"],\n        input[type=\"time\"] {\n            font-size: 1.2rem;\n            border-radius: 4px;\n            padding: 0.2rem;\n\n            border: 1px solid $accent-color;\n        }\n\n        button[type=\"button\"] {\n            padding: 0.2rem 1rem;\n            border: none;\n        }\n\n        #low {\n            background-color: $accent-color;\n        }\n\n        #med {\n            background-color: $medprio-color;\n            color: $primary-color;\n        }\n\n        #high {\n            background-color: $highprio-color;\n        }\n\n        button[type=\"submit\"] {\n            @include form-submit-button();\n        }\n\n    }\n}\n\n.add-proj {\n    @include form-display();\n    \n    &__box {\n        @include form-box();\n    }\n\n\n    &__top {\n        @include form-top();\n    }\n\n    &__form {\n        @include form-position();\n\n        input {\n            margin-bottom: 1rem;\n            background-color: $primary-color;\n            border: none;\n            display: block;\n            width: 100%;\n            font-size: 1.5rem;\n        }\n\n        button {\n            @include form-submit-button();\n        }\n\n    }\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n  font-family: Arial;\n  color: #FFF;\n}\n\nbody,\nhtml {\n  height: 100vh;\n}\n\n.header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  min-height: 8vh;\n  padding: 0 2rem;\n  background-color: #041C32;\n}\n.header__button {\n  width: 65px;\n  height: 65px;\n  font-size: 3rem;\n  border-radius: 50%;\n  border: 0;\n  background-color: #ECB365;\n}\n\nmain {\n  display: flex;\n  height: 92vh;\n  background-color: #04293A;\n}\n\n.sidebar {\n  background-color: #064663;\n  font-size: 1.4rem;\n  width: 280px;\n}\n.sidebar__main {\n  padding-top: 1rem;\n  border-bottom: 1px solid #041C32;\n}\n.sidebar__list {\n  list-style-type: none;\n}\n.sidebar__list #projectButton {\n  padding: 1rem;\n}\n.sidebar__list #projectButton:hover {\n  transition: 0.4s;\n  background-color: #041C32;\n  cursor: pointer;\n}\n.sidebar__item {\n  padding: 1rem;\n  word-wrap: break-word;\n}\n.sidebar__item--active {\n  background-color: #ECB365;\n}\n.sidebar__item:hover {\n  transition: 0.4s;\n  background-color: #ECB365;\n  cursor: pointer;\n}\n\n.list {\n  width: 100%;\n  overflow: scroll;\n}\n.list__items {\n  padding: 1rem;\n}\n.list__item {\n  margin-bottom: 0.5rem;\n  background-color: #041C32;\n  font-size: 1.5rem;\n}\n.list__item--active {\n  background-color: #031d36;\n  border-bottom-right-radius: 15px;\n  border-bottom-left-radius: 15px;\n}\n.list__item:hover {\n  transition: 0.4s;\n  background-color: #031d36;\n  cursor: pointer;\n}\n.list__wrapper {\n  width: 100%;\n}\n.list__top {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem;\n}\n.list__top--high {\n  border-left: 5px solid #A10035;\n}\n.list__top--med {\n  border-left: 5px solid #FFE7BF;\n}\n.list__top--active {\n  padding-bottom: 1rem;\n  border-bottom: 1px solid #04293A;\n}\n.list__right {\n  display: flex;\n}\n.list__check {\n  width: 50px;\n  accent-color: #ECB365;\n}\n.list__desc {\n  display: none;\n  padding: 1rem;\n  padding-top: 1rem;\n  border-bottom-right-radius: 15px;\n  border-bottom-left-radius: 15px;\n}\n.list__desc--active {\n  display: block;\n}\n.list__descText {\n  padding-bottom: 1rem;\n}\n.list__descText :first-child {\n  font-weight: 700;\n  padding-bottom: 0.5rem;\n}\n.list__descText :last-child {\n  font-size: 1.3rem;\n}\n.list__delete-wrapper {\n  text-align: right;\n}\n.list__delete {\n  margin-top: 1rem;\n  font-size: 1.5rem;\n  font-weight: 700;\n  background-color: #A10035;\n  text-align: center;\n  border-radius: 5px;\n  padding: 0.5rem;\n  border: 0;\n}\n\n.add {\n  display: none;\n  position: fixed;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  pointer-events: all;\n}\n.add__box {\n  background-color: #04293A;\n  border: 2px solid #064663;\n  width: 70vw;\n  border-radius: 5px;\n}\n.add__top {\n  background-color: #064663;\n  padding: 0.5rem 1rem;\n  display: flex;\n  justify-content: space-between;\n}\n.add__top h1 {\n  font-size: 2rem;\n  cursor: default;\n}\n.add__form {\n  padding: 1rem;\n  font-size: 1.2rem;\n  display: flex;\n  flex-direction: column;\n}\n.add__form input,\n.add__form textarea {\n  margin-bottom: 1rem;\n  background-color: #041C32;\n  border: none;\n}\n.add__form input[type=text],\n.add__form textarea {\n  display: block;\n  width: 100%;\n}\n.add__form input[type=text] {\n  font-size: 1.5rem;\n}\n.add__form textarea {\n  font-size: 1.2rem;\n  resize: none;\n}\n.add__form input[type=date],\n.add__form input[type=time] {\n  font-size: 1.2rem;\n  border-radius: 4px;\n  padding: 0.2rem;\n  border: 1px solid #064663;\n}\n.add__form button[type=button] {\n  padding: 0.2rem 1rem;\n  border: none;\n}\n.add__form #low {\n  background-color: #064663;\n}\n.add__form #med {\n  background-color: #FFE7BF;\n  color: #041C32;\n}\n.add__form #high {\n  background-color: #A10035;\n}\n.add__form button[type=submit] {\n  background-color: #ECB365;\n  font-size: 1.2rem;\n  font-weight: bold;\n  border: none;\n  padding: 1rem 3rem;\n  border-radius: 5px;\n  margin-top: 1rem;\n  align-self: center;\n}\n\n.add-proj {\n  display: none;\n  position: fixed;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  pointer-events: all;\n}\n.add-proj__box {\n  background-color: #04293A;\n  border: 2px solid #064663;\n  width: 70vw;\n  border-radius: 5px;\n}\n.add-proj__top {\n  background-color: #064663;\n  padding: 0.5rem 1rem;\n  display: flex;\n  justify-content: space-between;\n}\n.add-proj__top h1 {\n  font-size: 2rem;\n  cursor: default;\n}\n.add-proj__form {\n  padding: 1rem;\n  font-size: 1.2rem;\n  display: flex;\n  flex-direction: column;\n}\n.add-proj__form input {\n  margin-bottom: 1rem;\n  background-color: #041C32;\n  border: none;\n  display: block;\n  width: 100%;\n  font-size: 1.5rem;\n}\n.add-proj__form button {\n  background-color: #ECB365;\n  font-size: 1.2rem;\n  font-weight: bold;\n  border: none;\n  padding: 1rem 3rem;\n  border-radius: 5px;\n  margin-top: 1rem;\n  align-self: center;\n}", "",{"version":3,"sources":["webpack://./src/styles/main.scss"],"names":[],"mappings":"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","sourcesContent":["$primary-color: #041C32;\n$secondary-color: #04293A;\n$accent-color: #064663;\n$important-color: #ECB365;\n$highprio-color: #A10035;\n$medprio-color: #FFE7BF;\n$list-highlight-color: #031d36;\n$text-color: #FFF;\n\n@mixin sidebar-hover($color) {\n    &:hover {\n        transition: 0.4s;\n        background-color: $color;\n        cursor: pointer;\n    }\n}\n\n@mixin form-display() {\n    display: none;\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    pointer-events: all;\n}\n\n@mixin form-box() {\n    background-color: $secondary-color;\n    border: 2px solid $accent-color;\n    width: 70vw;\n    border-radius: 5px;\n}\n\n@mixin form-top() {\n    background-color: $accent-color;\n    padding: 0.5rem 1rem;\n    display: flex;\n    justify-content: space-between;\n\n    h1 {\n        font-size: 2rem;\n        cursor: default;\n    }\n}\n\n@mixin form-position() {\n    padding: 1rem;\n    font-size: 1.2rem;\n    display: flex;\n    flex-direction: column;\n}\n\n@mixin form-submit-button() {\n    background-color: $important-color;\n    font-size: 1.2rem;\n    font-weight: bold;\n    border: none;\n    padding: 1rem 3rem;\n    border-radius: 5px;\n    margin-top: 1rem;\n    align-self: center;\n}\n\n* {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n    font-family: Arial;\n    color: $text-color;\n}\n\nbody,\nhtml {\n    height: 100vh;\n}\n\n.header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n\n    min-height: 8vh;\n    padding: 0 2rem;\n    background-color: $primary-color;\n\n    &__button {\n        width: 65px;\n        height: 65px;\n        font-size: 3rem;\n        border-radius: 50%;\n        border: 0;\n        background-color: $important-color;\n    }\n}\n\nmain {\n    display: flex;\n    height: 92vh;\n\n    background-color: $secondary-color;\n}\n\n.sidebar {\n    background-color: $accent-color;\n    font-size: 1.4rem;\n    width: 280px;\n\n    &__main {\n        padding-top: 1rem;\n        border-bottom: 1px solid $primary-color;\n    }\n\n    &__list {\n        list-style-type: none;\n\n        #projectButton {\n            padding: 1rem;\n            @include sidebar-hover($primary-color);\n        }\n    }\n\n    &__item {\n        padding: 1rem;\n        word-wrap: break-word;\n\n        &--active {\n            background-color: $important-color;\n        }\n\n        @include sidebar-hover($important-color);\n    }\n}\n\n.list {\n    width: 100%;\n    overflow: scroll; // CHANGE TO HIDE DURING ADDING\n\n    &__items {\n        padding: 1rem;\n    }\n\n    &__item {\n        margin-bottom: 0.5rem;\n        background-color: $primary-color;\n        font-size: 1.5rem;\n\n        &--active {\n            background-color: $list-highlight-color;\n\n            border-bottom-right-radius: 15px;\n            border-bottom-left-radius: 15px;\n        }\n\n        @include sidebar-hover($list-highlight-color);\n    }\n\n    &__wrapper {\n        width: 100%;\n    }\n\n    &__top {\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n        padding: 1rem;\n\n        &--high {\n            border-left: 5px solid $highprio-color;\n        }\n\n        &--med {\n            border-left: 5px solid $medprio-color;\n        }\n\n        &--active {\n            padding-bottom: 1rem;\n            border-bottom: 1px solid $secondary-color;\n        }\n    }\n\n    &__right {\n        display: flex;\n    }\n\n    &__check {\n        width: 50px;\n        accent-color: $important-color;\n    }\n\n    &__desc {\n        display: none;\n\n        padding: 1rem;\n        padding-top: 1rem;\n        border-bottom-right-radius: 15px;\n        border-bottom-left-radius: 15px;\n\n        &--active {\n            display: block;\n        }\n    }\n\n    &__descText {\n        padding-bottom: 1rem;\n\n        :first-child {\n            font-weight: 700;\n            padding-bottom: 0.5rem;\n        }\n\n        :last-child {\n            font-size: 1.3rem;\n        }\n    }\n\n\n    &__delete-wrapper {\n        text-align: right;\n    }\n\n    &__delete {\n        margin-top: 1rem;\n        font-size: 1.5rem;\n        font-weight: 700;\n        background-color: $highprio-color;\n        text-align: center;\n        border-radius: 5px;\n        padding: 0.5rem;\n        border: 0;\n    }\n}\n\n.add {\n    @include form-display();\n\n\n    &__box {\n        @include form-box();\n    }\n\n\n    &__top {\n        @include form-top();\n    }\n\n    &__form {\n        @include form-position();\n\n        input,\n        textarea {\n            margin-bottom: 1rem;\n            background-color: $primary-color;\n            border: none;\n        }\n\n        input[type=\"text\"],\n        textarea {\n            display: block;\n            width: 100%;\n        }\n\n        input[type=\"text\"] {\n            font-size: 1.5rem;\n        }\n\n        textarea {\n            font-size: 1.2rem;\n            resize: none;\n        }\n\n        input[type=\"date\"],\n        input[type=\"time\"] {\n            font-size: 1.2rem;\n            border-radius: 4px;\n            padding: 0.2rem;\n\n            border: 1px solid $accent-color;\n        }\n\n        button[type=\"button\"] {\n            padding: 0.2rem 1rem;\n            border: none;\n        }\n\n        #low {\n            background-color: $accent-color;\n        }\n\n        #med {\n            background-color: $medprio-color;\n            color: $primary-color;\n        }\n\n        #high {\n            background-color: $highprio-color;\n        }\n\n        button[type=\"submit\"] {\n            @include form-submit-button();\n        }\n\n    }\n}\n\n.add-proj {\n    @include form-display();\n\n    &__box {\n        @include form-box();\n    }\n\n\n    &__top {\n        @include form-top();\n    }\n\n    &__form {\n        @include form-position();\n\n        input {\n            margin-bottom: 1rem;\n            background-color: $primary-color;\n            border: none;\n            display: block;\n            width: 100%;\n            font-size: 1.5rem;\n        }\n\n        button {\n            @include form-submit-button();\n        }\n\n    }\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -560,16 +560,18 @@ const checkItem = e => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "clearAll": () => (/* binding */ clearAll),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/js/projects.js");
 /* harmony import */ var _finders__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./finders */ "./src/js/finders.js");
+/* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
+
 
 
 
 
 const deleteItemDOM =  card => card.remove();
-
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (e => {
     const card = (0,_finders__WEBPACK_IMPORTED_MODULE_1__.findCurrentCard)(e);
@@ -581,6 +583,10 @@ const deleteItemDOM =  card => card.remove();
     console.log(_projects__WEBPACK_IMPORTED_MODULE_0__.mainList);
 
 });
+
+const clearAll = () => {
+    while(_elements__WEBPACK_IMPORTED_MODULE_2__.listItems.firstChild) _elements__WEBPACK_IMPORTED_MODULE_2__.listItems.removeChild(_elements__WEBPACK_IMPORTED_MODULE_2__.listItems.firstChild);
+}
 
 /***/ }),
 
@@ -648,6 +654,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "listItems": () => (/* binding */ listItems),
 /* harmony export */   "projectButton": () => (/* binding */ projectButton),
 /* harmony export */   "projectForm": () => (/* binding */ projectForm),
+/* harmony export */   "projectTitle": () => (/* binding */ projectTitle),
+/* harmony export */   "sidebar": () => (/* binding */ sidebar),
+/* harmony export */   "sidebarList": () => (/* binding */ sidebarList),
 /* harmony export */   "time": () => (/* binding */ time),
 /* harmony export */   "title": () => (/* binding */ title)
 /* harmony export */ });
@@ -672,6 +681,10 @@ const addProjBox = document.getElementById("addProj");
 const projectButton = document.getElementById("projectButton");
 const exitProject = document.getElementById("exitProject")
 const projectForm = document.getElementById("projectForm");
+const projectTitle = document.getElementById("projectTitle");
+
+const sidebarList = document.getElementById("sidebarList");
+const sidebar = document.getElementById("sidebar");
 
 /***/ }),
 
@@ -788,6 +801,7 @@ _elements_js__WEBPACK_IMPORTED_MODULE_0__.allButtons.forEach(button => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "activeProject": () => (/* binding */ activeProject),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
@@ -796,9 +810,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _deleteItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./deleteItem */ "./src/js/deleteItem.js");
 /* harmony import */ var _desc__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./desc */ "./src/js/desc.js");
 /* harmony import */ var _checkItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./checkItem */ "./src/js/checkItem.js");
+/* harmony import */ var _todo_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./todo.js */ "./src/js/todo.js");
 
 
  
+
 
 
 
@@ -809,12 +825,34 @@ const addGlobalListener = (type, selector, callback) => {
     })
 }
 
-
+let activeProject = "";
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (() => {
     addGlobalListener("click", ".list__top", _desc__WEBPACK_IMPORTED_MODULE_4__["default"]);
     addGlobalListener("click", ".list__delete", _deleteItem__WEBPACK_IMPORTED_MODULE_3__["default"]);
     addGlobalListener("click", ".list__check", _checkItem__WEBPACK_IMPORTED_MODULE_5__.checkItem);
+    addGlobalListener("click", ".sidebar__item", e => {
+        (0,_deleteItem__WEBPACK_IMPORTED_MODULE_3__.clearAll)();
+
+        const listItems = _elements__WEBPACK_IMPORTED_MODULE_0__.sidebar.querySelectorAll(".sidebar__item");
+        listItems.forEach(item => {
+            if(item.classList.contains("sidebar__item--active")) {
+                item.classList.remove("sidebar__item--active");
+            }
+        })
+
+        e.target.classList.add("sidebar__item--active");
+
+        activeProject = e.target.textContent;
+
+        const currentProject = _projects_js__WEBPACK_IMPORTED_MODULE_2__.listOfProjects[activeProject];
+
+        currentProject.forEach(item => {
+            (0,_todo_js__WEBPACK_IMPORTED_MODULE_6__.createItem)(item.title, item.desc, item.date, item.time, item.priority, _elements__WEBPACK_IMPORTED_MODULE_0__.listItems);
+        })
+        
+        
+    });
 
     _elements__WEBPACK_IMPORTED_MODULE_0__.addItemButton.addEventListener("click", _form__WEBPACK_IMPORTED_MODULE_1__.openForm);
     _elements__WEBPACK_IMPORTED_MODULE_0__.addItemExit.addEventListener("click", _form__WEBPACK_IMPORTED_MODULE_1__.closeForm);
@@ -835,6 +873,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ListItem": () => (/* binding */ ListItem),
 /* harmony export */   "closeProject": () => (/* binding */ closeProject),
 /* harmony export */   "deleteItemFromArray": () => (/* binding */ deleteItemFromArray),
+/* harmony export */   "listOfProjects": () => (/* binding */ listOfProjects),
 /* harmony export */   "mainList": () => (/* binding */ mainList),
 /* harmony export */   "openProject": () => (/* binding */ openProject)
 /* harmony export */ });
@@ -844,6 +883,56 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let mainList = [];
+
+let listOfProjects = {
+    "Project #1": [{
+        title: "title",
+        desc: "desc",
+        date: "date",
+        time: "time",
+        priority: "high",
+        active: 0
+    },
+    {
+        title: "title1",
+        desc: "desc1",
+        date: "date1",
+        time: "time1",
+        priority: "med",
+        active: 0
+    },
+    {
+        title: "title2",
+        desc: "desc2",
+        date: "date2",
+        time: "time2",
+        priority: "",
+        active: 0
+    },],
+    "Project #2": [{
+        title: "title",
+        desc: "desc",
+        date: "date",
+        time: "time",
+        priority: "high",
+        active: 0
+    },
+    {
+        title: "title1",
+        desc: "desc1",
+        date: "date1",
+        time: "time1",
+        priority: "med",
+        active: 0
+    },], "Project #3": [{
+        title: "title",
+        desc: "desc",
+        date: "date",
+        time: "time",
+        priority: "high",
+        active: 0
+    },]
+};
 
 class ListItem {
     constructor(title, desc, date, time, priority) {
@@ -865,7 +954,7 @@ class ListItem {
     }
 }
 
-const deleteItemFromArray = title => {mainList = mainList.filter(item => item.title != title)};
+const deleteItemFromArray = title => { mainList = mainList.filter(item => item.title != title) };
 
 const openProject = () => {
     _elements__WEBPACK_IMPORTED_MODULE_0__.addProjBox.style.display = "grid";
@@ -877,6 +966,7 @@ const closeProject = () => {
     (0,_form__WEBPACK_IMPORTED_MODULE_1__.enableScreen)();
 }
 
+
 /***/ }),
 
 /***/ "./src/js/todo.js":
@@ -887,6 +977,7 @@ const closeProject = () => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "createItem": () => (/* binding */ createItem),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/js/projects.js");
@@ -1048,6 +1139,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
 /* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./todo */ "./src/js/todo.js");
 /* harmony import */ var _listeners__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./listeners */ "./src/js/listeners.js");
+/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./projects */ "./src/js/projects.js");
+
 
 
 
@@ -1057,12 +1150,30 @@ __webpack_require__.r(__webpack_exports__);
 
 (0,_listeners__WEBPACK_IMPORTED_MODULE_4__["default"])();
 
-(0,_todo__WEBPACK_IMPORTED_MODULE_3__["default"])("title", "desc", "date", "time", "priority", _elements__WEBPACK_IMPORTED_MODULE_2__.listItems);
-(0,_todo__WEBPACK_IMPORTED_MODULE_3__["default"])("title1", "desc1", "date1", "time1", "priority1", _elements__WEBPACK_IMPORTED_MODULE_2__.listItems);
-(0,_todo__WEBPACK_IMPORTED_MODULE_3__["default"])("title2", "desc2", "date2", "time2", "priority2", _elements__WEBPACK_IMPORTED_MODULE_2__.listItems);
-(0,_todo__WEBPACK_IMPORTED_MODULE_3__["default"])("title3", "desc3", "date3", "time3", "priority3", _elements__WEBPACK_IMPORTED_MODULE_2__.listItems);
+// createTodo("title", "desc", "date", "time", "priority", listItems);
+// createTodo("title1", "desc1", "date1", "time1", "priority1", listItems);
+// createTodo("title2", "desc2", "date2", "time2", "priority2", listItems);
+// createTodo("title3", "desc3", "date3", "time3", "priority3", listItems);
 
 (0,_form__WEBPACK_IMPORTED_MODULE_1__["default"])(_elements__WEBPACK_IMPORTED_MODULE_2__.form);
+
+
+_elements__WEBPACK_IMPORTED_MODULE_2__.projectForm.addEventListener("submit", e => {
+
+    const title = _elements__WEBPACK_IMPORTED_MODULE_2__.projectTitle.value;
+    
+    const listItem = document.createElement("li");
+    listItem.textContent = title;
+    listItem.classList.add("sidebar__item");
+
+    _elements__WEBPACK_IMPORTED_MODULE_2__.sidebarList.append(listItem);
+
+    _projects__WEBPACK_IMPORTED_MODULE_5__.listOfProjects[title] = [];
+    
+    console.log(_projects__WEBPACK_IMPORTED_MODULE_5__.listOfProjects);
+
+    // closeProject();
+})
 })();
 
 /******/ })()
