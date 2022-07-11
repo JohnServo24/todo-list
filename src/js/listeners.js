@@ -12,13 +12,14 @@ const addGlobalListener = (type, selector, callback) => {
     })
 }
 
-export let activeProject = "";
+export let activeProject = "Main Tasks";
 
 export default () => {
     addGlobalListener("click", ".list__top", toggleDesc);
     addGlobalListener("click", ".list__delete", deleteItem);
     addGlobalListener("click", ".list__check", checkItem);
     addGlobalListener("click", ".sidebar__item", e => {
+        // ORGANIZE
         clearAll();
 
         const listItems = sidebar.querySelectorAll(".sidebar__item");

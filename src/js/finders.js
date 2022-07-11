@@ -1,5 +1,3 @@
-import { mainList } from "./projects";
-
 export const findCurrentCard = e => {
     let item = e.target;
 
@@ -8,7 +6,7 @@ export const findCurrentCard = e => {
     return item;
 };
 
-export const findCurrentItemInArray = title => mainList.filter(listItem => listItem.title === title);
+export const findCurrentItemInArray = (title, arr) => arr.filter(listItem => listItem.title === title);
 
 export const findTitle = card => {
     const child = card.firstChild;

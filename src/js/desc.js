@@ -1,4 +1,6 @@
 import {findCurrentCard, findTitle, findCurrentItemInArray} from './finders';
+import { listOfProjects } from './projects';
+import { activeProject } from './listeners';
 
 const expandCard = (item, children) => {
     item.classList.add("list__item--active");
@@ -13,11 +15,14 @@ const shrinkCard = (item, children) => {
         child.classList.remove(`${child.classList[0]}--active`);
     });
 }
+
 export default e => {
     const item = findCurrentCard(e);
     const title = findTitle(item);
     const children = item.querySelectorAll("div");
-    const currentItem = findCurrentItemInArray(title);
+    const currentItem = findCurrentItemInArray(title, listOfProjects[activeProject]);
+
+    console.log(currentItem[0]);
 
     if (currentItem[0].checkStatus() === 0) expandCard(item, children);
     else shrinkCard(item, children);

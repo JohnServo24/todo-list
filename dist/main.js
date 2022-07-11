@@ -566,6 +566,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/js/projects.js");
 /* harmony import */ var _finders__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./finders */ "./src/js/finders.js");
 /* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
+/* harmony import */ var _listeners__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./listeners */ "./src/js/listeners.js");
+
 
 
 
@@ -575,12 +577,9 @@ const deleteItemDOM =  card => card.remove();
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (e => {
     const card = (0,_finders__WEBPACK_IMPORTED_MODULE_1__.findCurrentCard)(e);
-    const title = (0,_finders__WEBPACK_IMPORTED_MODULE_1__.findTitle)(card);
-
+    
     deleteItemDOM(card);
-    (0,_projects__WEBPACK_IMPORTED_MODULE_0__.deleteItemFromArray)(title);
-
-    console.log(_projects__WEBPACK_IMPORTED_MODULE_0__.mainList);
+    (0,_projects__WEBPACK_IMPORTED_MODULE_0__.deleteItemFromArray)(_projects__WEBPACK_IMPORTED_MODULE_0__.listOfProjects[_listeners__WEBPACK_IMPORTED_MODULE_3__.activeProject]);
 
 });
 
@@ -601,6 +600,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _finders__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./finders */ "./src/js/finders.js");
+/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./projects */ "./src/js/projects.js");
+/* harmony import */ var _listeners__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./listeners */ "./src/js/listeners.js");
+
+
 
 
 const expandCard = (item, children) => {
@@ -616,11 +619,14 @@ const shrinkCard = (item, children) => {
         child.classList.remove(`${child.classList[0]}--active`);
     });
 }
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (e => {
     const item = (0,_finders__WEBPACK_IMPORTED_MODULE_0__.findCurrentCard)(e);
     const title = (0,_finders__WEBPACK_IMPORTED_MODULE_0__.findTitle)(item);
     const children = item.querySelectorAll("div");
-    const currentItem = (0,_finders__WEBPACK_IMPORTED_MODULE_0__.findCurrentItemInArray)(title);
+    const currentItem = (0,_finders__WEBPACK_IMPORTED_MODULE_0__.findCurrentItemInArray)(title, _projects__WEBPACK_IMPORTED_MODULE_1__.listOfProjects[_listeners__WEBPACK_IMPORTED_MODULE_2__.activeProject]);
+
+    console.log(currentItem[0]);
 
     if (currentItem[0].checkStatus() === 0) expandCard(item, children);
     else shrinkCard(item, children);
@@ -700,9 +706,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "findCurrentItemInArray": () => (/* binding */ findCurrentItemInArray),
 /* harmony export */   "findTitle": () => (/* binding */ findTitle)
 /* harmony export */ });
-/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/js/projects.js");
-
-
 const findCurrentCard = e => {
     let item = e.target;
 
@@ -711,7 +714,7 @@ const findCurrentCard = e => {
     return item;
 };
 
-const findCurrentItemInArray = title => _projects__WEBPACK_IMPORTED_MODULE_0__.mainList.filter(listItem => listItem.title === title);
+const findCurrentItemInArray = (title, arr) => arr.filter(listItem => listItem.title === title);
 
 const findTitle = card => {
     const child = card.firstChild;
@@ -825,13 +828,14 @@ const addGlobalListener = (type, selector, callback) => {
     })
 }
 
-let activeProject = "";
+let activeProject = "Main Tasks";
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (() => {
     addGlobalListener("click", ".list__top", _desc__WEBPACK_IMPORTED_MODULE_4__["default"]);
     addGlobalListener("click", ".list__delete", _deleteItem__WEBPACK_IMPORTED_MODULE_3__["default"]);
     addGlobalListener("click", ".list__check", _checkItem__WEBPACK_IMPORTED_MODULE_5__.checkItem);
     addGlobalListener("click", ".sidebar__item", e => {
+        // ORGANIZE
         (0,_deleteItem__WEBPACK_IMPORTED_MODULE_3__.clearAll)();
 
         const listItems = _elements__WEBPACK_IMPORTED_MODULE_0__.sidebar.querySelectorAll(".sidebar__item");
@@ -1190,7 +1194,7 @@ __webpack_require__.r(__webpack_exports__);
 (0,_listeners__WEBPACK_IMPORTED_MODULE_4__["default"])();
 (0,_form__WEBPACK_IMPORTED_MODULE_1__["default"])(_elements__WEBPACK_IMPORTED_MODULE_2__.form);
 
-
+// ORGANIZE
 _elements__WEBPACK_IMPORTED_MODULE_2__.projectForm.addEventListener("submit", e => {
 
     const title = _elements__WEBPACK_IMPORTED_MODULE_2__.projectTitle.value;

@@ -10,7 +10,7 @@ printItems(listOfProjects["Main Tasks"]);
 listeners();
 activateForm(form);
 
-
+// ORGANIZE
 projectForm.addEventListener("submit", e => {
 
     const title = projectTitle.value;
