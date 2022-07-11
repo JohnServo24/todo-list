@@ -1,7 +1,7 @@
 import { mainList } from "./projects";
 import { ListItem } from "./projects";
 
-const createItem = (title, desc, date, time, priority, listItems) => {
+export const createItem = (title, desc, date, time, priority, listItems) => {
     const itemElement = document.createElement("div");
     const wrapperElement = document.createElement("div");
 

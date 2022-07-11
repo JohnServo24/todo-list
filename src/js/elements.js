@@ -19,3 +19,7 @@ export const addProjBox = document.getElementById("addProj");
 export const projectButton = document.getElementById("projectButton");
 export const exitProject = document.getElementById("exitProject")
 export const projectForm = document.getElementById("projectForm");
+export const projectTitle = document.getElementById("projectTitle");
+
+export const sidebarList = document.getElementById("sidebarList");
+export const sidebar = document.getElementById("sidebar");

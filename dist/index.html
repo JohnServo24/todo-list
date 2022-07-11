@@ -17,15 +17,15 @@
         <button class="header__button" id="addButton">+</button>
     </header>
     <main>
-        <nav class="sidebar">
+        <nav class="sidebar" id="sidebar">
             <div class="sidebar__main">
                 <ul class="sidebar__list">
                     <li class="sidebar__item sidebar__item--active">Main Tasks</li>
+                    <li id="projectButton">Create a Project</li>
                 </ul>
             </div>
             <div class="sidebar__projects">
-                <p id="projectButton">Create a Project</p>
-                <ul class="sidebar__list">
+                <ul class="sidebar__list" id="sidebarList">
                     <li class="sidebar__item">Project #1</li>
                     <li class="sidebar__item">Project #2</li>
                     <li class="sidebar__item">Project #3</li>
@@ -72,7 +72,7 @@
                     </div>
 
                     <form action="/" class="add-proj__form" id="projectForm" onsubmit="return false">
-                        <input type="text" id="title" placeholder="Project Name..." required>
+                        <input type="text" id="projectTitle" placeholder="Project Name..." required>
 
                         <button type="submit">ADD Project</button>
                     </form>

@@ -106,14 +106,14 @@ main {
     width: 280px;
 
     &__main {
-        padding: 1rem 0;
+        padding-top: 1rem;
         border-bottom: 1px solid $primary-color;
     }
 
-    &__projects {
-        text-align: center;
+    &__list {
+        list-style-type: none;
 
-        p {
+        #projectButton {
             padding: 1rem;
             @include sidebar-hover($primary-color);
         }
@@ -121,9 +121,9 @@ main {
 
     &__item {
         padding: 1rem;
+        word-wrap: break-word;
 
         &--active {
-            font-weight: 900;
             background-color: $important-color;
         }
 
@@ -304,7 +304,7 @@ main {
 
 .add-proj {
     @include form-display();
-    
+
     &__box {
         @include form-box();
     }
