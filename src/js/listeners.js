@@ -3,8 +3,6 @@ import {openForm, closeForm} from "./form";
 import {openProject, closeProject, listOfProjects, printItems} from "./projects.js" 
 import deleteItem, {clearAll} from './deleteItem';
 import toggleDesc from './desc';
-import {checkItem} from "./checkItem";
-
 
 const addGlobalListener = (type, selector, callback) => {
     document.addEventListener(type, e => {
@@ -17,7 +15,7 @@ export let activeProject = "Main Tasks";
 export default () => {
     addGlobalListener("click", ".list__top", toggleDesc);
     addGlobalListener("click", ".list__delete", deleteItem);
-    addGlobalListener("click", ".list__check", checkItem);
+    addGlobalListener("click", ".list__check", deleteItem);
     addGlobalListener("click", ".sidebar__item", e => {
         // ORGANIZE
         clearAll();

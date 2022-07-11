@@ -530,28 +530,6 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
-/***/ "./src/js/checkItem.js":
-/*!*****************************!*\
-  !*** ./src/js/checkItem.js ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "checkItem": () => (/* binding */ checkItem)
-/* harmony export */ });
-/* harmony import */ var _deleteItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./deleteItem */ "./src/js/deleteItem.js");
-
-
-const checkItem = e => {
-    // ADD FUNCTION TO ADD TO FINISHED TASKS LATER
-
-    (0,_deleteItem__WEBPACK_IMPORTED_MODULE_0__["default"])(e);
-}
-
-
-/***/ }),
-
 /***/ "./src/js/deleteItem.js":
 /*!******************************!*\
   !*** ./src/js/deleteItem.js ***!
@@ -813,12 +791,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _projects_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./projects.js */ "./src/js/projects.js");
 /* harmony import */ var _deleteItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./deleteItem */ "./src/js/deleteItem.js");
 /* harmony import */ var _desc__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./desc */ "./src/js/desc.js");
-/* harmony import */ var _checkItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./checkItem */ "./src/js/checkItem.js");
 
 
  
-
-
 
 
 
@@ -833,7 +808,7 @@ let activeProject = "Main Tasks";
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (() => {
     addGlobalListener("click", ".list__top", _desc__WEBPACK_IMPORTED_MODULE_4__["default"]);
     addGlobalListener("click", ".list__delete", _deleteItem__WEBPACK_IMPORTED_MODULE_3__["default"]);
-    addGlobalListener("click", ".list__check", _checkItem__WEBPACK_IMPORTED_MODULE_5__.checkItem);
+    addGlobalListener("click", ".list__check", _deleteItem__WEBPACK_IMPORTED_MODULE_3__["default"]);
     addGlobalListener("click", ".sidebar__item", e => {
         // ORGANIZE
         (0,_deleteItem__WEBPACK_IMPORTED_MODULE_3__.clearAll)();
