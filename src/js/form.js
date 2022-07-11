@@ -1,6 +1,7 @@
 import {addItemBox, body, list, allButtons, title, desc, date, time} from "./elements.js";
 import { mainList } from "./projects.js";
 import createTodo from "./todo.js";
+import { activeProject } from "./listeners";
 
 export const disableScreen = () => {
     body.style.pointerEvents = "none";
@@ -40,10 +41,9 @@ export default form => {
             return;
         };
     
-        createTodo(title.value, desc.value, date.value, time.value, priority, listItems);
+        createTodo(title.value, desc.value, date.value, time.value, priority, listItems, activeProject);
         priority = "";
-        
-        console.log(mainList);
+
         closeForm();
     });
 }

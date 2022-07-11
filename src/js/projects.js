@@ -4,6 +4,37 @@ import { disableScreen, enableScreen } from "./form";
 export let mainList = [];
 
 export let listOfProjects = {
+    "Main Tasks": [{
+        title: "title",
+        desc: "desc",
+        date: "date",
+        time: "time",
+        priority: "high",
+        active: 0
+    },
+    {
+        title: "title1",
+        desc: "desc1",
+        date: "date1",
+        time: "time1",
+        priority: "med",
+        active: 0
+    },
+    {
+        title: "title2",
+        desc: "desc2",
+        date: "date2",
+        time: "time2",
+        priority: "",
+        active: 0
+    }, {
+        title: "title3",
+        desc: "desc3",
+        date: "date3",
+        time: "time3",
+        priority: "",
+        active: 0
+    },],
     "Project #1": [{
         title: "title",
         desc: "desc",

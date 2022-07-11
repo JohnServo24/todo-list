@@ -38,6 +38,7 @@ export default () => {
             createItem(item.title, item.desc, item.date, item.time, item.priority, lit);
         })
         
+        console.log(currentProject);
         
     });
 
