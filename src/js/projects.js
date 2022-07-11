@@ -1,5 +1,6 @@
-import { addProjBox } from "./elements";
+import { addProjBox, listItems} from "./elements";
 import { disableScreen, enableScreen } from "./form";
+import {createItem} from "./todo.js";
 
 export let mainList = [];
 
@@ -114,4 +115,10 @@ export const openProject = () => {
 export const closeProject = () => {
     addProjBox.style.display = "none";
     enableScreen();
+}
+
+export const printItems = project => {
+    project.forEach(item => {
+        createItem(item.title, item.desc, item.date, item.time, item.priority, listItems);
+    })
 }

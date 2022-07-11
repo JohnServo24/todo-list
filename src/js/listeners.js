@@ -1,10 +1,10 @@
-import { addItemButton, addItemExit, projectButton, exitProject, sidebar, listItems as lit} from "./elements";
+import { addItemButton, addItemExit, projectButton, exitProject, sidebar} from "./elements";
 import {openForm, closeForm} from "./form";
-import {openProject, closeProject, listOfProjects} from "./projects.js" 
+import {openProject, closeProject, listOfProjects, printItems} from "./projects.js" 
 import deleteItem, {clearAll} from './deleteItem';
 import toggleDesc from './desc';
 import {checkItem} from "./checkItem";
-import {createItem} from "./todo.js";
+
 
 const addGlobalListener = (type, selector, callback) => {
     document.addEventListener(type, e => {
@@ -34,9 +34,7 @@ export default () => {
 
         const currentProject = listOfProjects[activeProject];
 
-        currentProject.forEach(item => {
-            createItem(item.title, item.desc, item.date, item.time, item.priority, lit);
-        })
+        printItems(currentProject);
         
         console.log(currentProject);
         
