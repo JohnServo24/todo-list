@@ -811,7 +811,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _deleteItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./deleteItem */ "./src/js/deleteItem.js");
 /* harmony import */ var _desc__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./desc */ "./src/js/desc.js");
 /* harmony import */ var _checkItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./checkItem */ "./src/js/checkItem.js");
-/* harmony import */ var _todo_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./todo.js */ "./src/js/todo.js");
 
 
  
@@ -848,9 +847,7 @@ let activeProject = "";
 
         const currentProject = _projects_js__WEBPACK_IMPORTED_MODULE_2__.listOfProjects[activeProject];
 
-        currentProject.forEach(item => {
-            (0,_todo_js__WEBPACK_IMPORTED_MODULE_6__.createItem)(item.title, item.desc, item.date, item.time, item.priority, _elements__WEBPACK_IMPORTED_MODULE_0__.listItems);
-        })
+        (0,_projects_js__WEBPACK_IMPORTED_MODULE_2__.printItems)(currentProject);
         
         console.log(currentProject);
         
@@ -877,10 +874,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "deleteItemFromArray": () => (/* binding */ deleteItemFromArray),
 /* harmony export */   "listOfProjects": () => (/* binding */ listOfProjects),
 /* harmony export */   "mainList": () => (/* binding */ mainList),
-/* harmony export */   "openProject": () => (/* binding */ openProject)
+/* harmony export */   "openProject": () => (/* binding */ openProject),
+/* harmony export */   "printItems": () => (/* binding */ printItems)
 /* harmony export */ });
 /* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
 /* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form */ "./src/js/form.js");
+/* harmony import */ var _todo_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./todo.js */ "./src/js/todo.js");
+
 
 
 
@@ -997,6 +997,12 @@ const openProject = () => {
 const closeProject = () => {
     _elements__WEBPACK_IMPORTED_MODULE_0__.addProjBox.style.display = "none";
     (0,_form__WEBPACK_IMPORTED_MODULE_1__.enableScreen)();
+}
+
+const printItems = project => {
+    project.forEach(item => {
+        ;(0,_todo_js__WEBPACK_IMPORTED_MODULE_2__.createItem)(item.title, item.desc, item.date, item.time, item.priority, _elements__WEBPACK_IMPORTED_MODULE_0__.listItems);
+    })
 }
 
 
@@ -1180,13 +1186,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+(0,_projects__WEBPACK_IMPORTED_MODULE_5__.printItems)(_projects__WEBPACK_IMPORTED_MODULE_5__.listOfProjects["Main Tasks"]);
 (0,_listeners__WEBPACK_IMPORTED_MODULE_4__["default"])();
-
-// createTodo("title", "desc", "date", "time", "priority", listItems);
-// createTodo("title1", "desc1", "date1", "time1", "priority1", listItems);
-// createTodo("title2", "desc2", "date2", "time2", "priority2", listItems);
-// createTodo("title3", "desc3", "date3", "time3", "priority3", listItems);
-
 (0,_form__WEBPACK_IMPORTED_MODULE_1__["default"])(_elements__WEBPACK_IMPORTED_MODULE_2__.form);
 
 
