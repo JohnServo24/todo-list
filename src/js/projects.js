@@ -1,7 +1,7 @@
 import { addProjBox } from "./elements";
 import { disableScreen, enableScreen } from "./form";
 import {projectTitle, sidebarList, sidebar} from "./elements";
-import {printItems} from "./items.js";
+import {printItems} from "./items";
 import {clearAll} from './deleteItem';
 
 export let listOfProjects = {
@@ -60,8 +60,15 @@ export const selectProject = e => {
 
 export default projectForm => {
     projectForm.addEventListener("submit", e => {
-
         const title = projectTitle.value;
+
+        if(title in listOfProjects) {
+            alert("Project Already Exists!");
+            projectTitle.value = "";
+
+            e.preventDefault();
+            return;
+        }
         
         const listItem = document.createElement("li");
         listItem.textContent = title;
