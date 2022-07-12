@@ -14,6 +14,7 @@ FEATURES
 - To be able to delete projects
 - To be able to edit todos
 - Highlight the priority when clicked
+- Save in local storage
 
 ### To improve:
 
