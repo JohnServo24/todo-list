@@ -1,6 +1,5 @@
 import {findCurrentCard, findTitle, findCurrentItemInArray} from './finders';
-import { listOfProjects } from './projects';
-import { activeProject } from './listeners';
+import { listOfProjects, activeProject } from './projects';
 
 const expandCard = (item, children) => {
     item.classList.add("list__item--active");

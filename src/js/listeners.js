@@ -1,16 +1,15 @@
 import { addItemButton, addItemExit, projectButton, exitProject, sidebar} from "./elements";
 import {openForm, closeForm} from "./form";
-import {openProject, closeProject, listOfProjects, printItems} from "./projects.js" 
+import {openProject, closeProject, listOfProjects, activeProject, changeActive} from "./projects.js" 
 import deleteItem, {clearAll} from './deleteItem';
 import toggleDesc from './desc';
+import {printItems} from "./items.js";
 
 const addGlobalListener = (type, selector, callback) => {
     document.addEventListener(type, e => {
         if (e.target.matches(selector)) callback(e);
     })
 }
-
-export let activeProject = "Main Tasks";
 
 export default () => {
     addGlobalListener("click", ".list__top", toggleDesc);
@@ -29,7 +28,7 @@ export default () => {
 
         e.target.classList.add("sidebar__item--active");
 
-        activeProject = e.target.textContent;
+        changeActive(e.target.textContent);
 
         const currentProject = listOfProjects[activeProject];
 

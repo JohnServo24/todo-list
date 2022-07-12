@@ -1,17 +1,17 @@
-import { deleteItemFromArray } from "./projects";
 import { findCurrentCard, findTitle } from "./finders";
-import { listOfProjects } from "./projects";
+import { listOfProjects, activeProject } from "./projects";
 import { listItems } from "./elements";
-import { activeProject } from "./listeners";
 
 const deleteItemDOM =  card => card.remove();
+const deleteItemFromArray = title => { listOfProjects[activeProject] = listOfProjects[activeProject].filter(item => item.title != title) };
 
 export default e => {
     const card = findCurrentCard(e);
-    
-    deleteItemDOM(card);
-    deleteItemFromArray(listOfProjects[activeProject]);
+    const title = findTitle(card);
 
+
+    deleteItemDOM(card);
+    deleteItemFromArray(title);
 }
 
 export const clearAll = () => {

@@ -1,7 +1,6 @@
 import {addItemBox, body, list, allButtons, title, desc, date, time} from "./elements.js";
-import { mainList } from "./projects.js";
 import createTodo from "./todo.js";
-import { activeProject } from "./listeners";
+import { activeProject } from "./projects";
 
 export const disableScreen = () => {
     body.style.pointerEvents = "none";

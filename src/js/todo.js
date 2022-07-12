@@ -1,4 +1,5 @@
-import { ListItem, listOfProjects } from "./projects";
+import {listOfProjects} from "./projects";
+import {ListItem} from "./items.js";
 
 export const createItem = (title, desc, date, time, priority, listItems) => {
     const itemElement = document.createElement("div");
@@ -58,7 +59,7 @@ export const createItem = (title, desc, date, time, priority, listItems) => {
     listItems.append(itemElement);
 }
 
-const createItemObj = (title, desc, date, time, priority, activeProject) => {
+export const createItemObj = (title, desc, date, time, priority, activeProject) => {
     const item = new ListItem(title, desc, date, time, priority);
     listOfProjects[activeProject].push(item);
 }
