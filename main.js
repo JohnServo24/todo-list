@@ -946,7 +946,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
 /* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form */ "./src/js/form.js");
-/* harmony import */ var _items_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./items.js */ "./src/js/items.js");
+/* harmony import */ var _items__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./items */ "./src/js/items.js");
 /* harmony import */ var _deleteItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./deleteItem */ "./src/js/deleteItem.js");
 
 
@@ -1003,15 +1003,22 @@ const selectProject = e => {
     changeActive(e.target.textContent);
     setCurrentActive();
 
-    (0,_items_js__WEBPACK_IMPORTED_MODULE_2__.printItems)(currentActive);
+    (0,_items__WEBPACK_IMPORTED_MODULE_2__.printItems)(currentActive);
     
     console.log(currentActive);
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (projectForm => {
     projectForm.addEventListener("submit", e => {
-
         const title = _elements__WEBPACK_IMPORTED_MODULE_0__.projectTitle.value;
+
+        if(title in listOfProjects) {
+            alert("Project Already Exists!");
+            _elements__WEBPACK_IMPORTED_MODULE_0__.projectTitle.value = "";
+
+            e.preventDefault();
+            return;
+        }
         
         const listItem = document.createElement("li");
         listItem.textContent = title;
