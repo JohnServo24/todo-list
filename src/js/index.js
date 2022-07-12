@@ -1,10 +1,9 @@
 import '../styles/main.scss';
 import activateForm from "./form";
-import {exitProject, form, listItems, projectForm, projectTitle, sidebarList} from "./elements";
-import createTodo, {createItemObj} from "./todo";
-import listeners, {activeProject} from "./listeners";
-import {closeProject, listOfProjects} from "./projects";
-import {printItems} from "./items.js";
+import {form, projectForm} from "./elements";
+import listeners from "./listeners";
+import createProject, {listOfProjects} from "./projects";
+import {printItems, createItemObj} from "./items.js";
 
 listeners();
 activateForm(form);
@@ -16,20 +15,4 @@ createItemObj("title3", "desc3", "date3", "time3", "", "Project #3");
 
 
 printItems(listOfProjects["Main Tasks"]);
-// ORGANIZE
-projectForm.addEventListener("submit", e => {
-
-    const title = projectTitle.value;
-    
-    const listItem = document.createElement("li");
-    listItem.textContent = title;
-    listItem.classList.add("sidebar__item");
-
-    sidebarList.append(listItem);
-
-    listOfProjects[title] = [];
-    
-    console.log(listOfProjects);
-
-    // closeProject();
-})
+createProject(projectForm);

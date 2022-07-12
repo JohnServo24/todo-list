@@ -1,6 +1,6 @@
 import {addItemBox, body, list, allButtons, title, desc, date, time} from "./elements.js";
-import createTodo from "./todo.js";
-import { activeProject } from "./projects";
+import createTodo from "./items.js";
+import { activeProject, currentActive } from "./projects";
 
 export const disableScreen = () => {
     body.style.pointerEvents = "none";
@@ -22,7 +22,7 @@ export const closeForm = () => {
     enableScreen();
 }
 
-const hasDuplicate = title => mainList.find(item => item.title === title);
+const hasDuplicate = title => currentActive.find(item => item.title === title);
 
 let priority = "";
 allButtons.forEach(button => {

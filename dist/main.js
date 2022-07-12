@@ -717,7 +717,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "openForm": () => (/* binding */ openForm)
 /* harmony export */ });
 /* harmony import */ var _elements_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements.js */ "./src/js/elements.js");
-/* harmony import */ var _todo_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todo.js */ "./src/js/todo.js");
+/* harmony import */ var _items_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./items.js */ "./src/js/items.js");
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./projects */ "./src/js/projects.js");
 
 
@@ -743,7 +743,7 @@ const closeForm = () => {
     enableScreen();
 }
 
-const hasDuplicate = title => mainList.find(item => item.title === title);
+const hasDuplicate = title => _projects__WEBPACK_IMPORTED_MODULE_2__.currentActive.find(item => item.title === title);
 
 let priority = "";
 _elements_js__WEBPACK_IMPORTED_MODULE_0__.allButtons.forEach(button => {
@@ -761,7 +761,7 @@ _elements_js__WEBPACK_IMPORTED_MODULE_0__.allButtons.forEach(button => {
             return;
         };
     
-        (0,_todo_js__WEBPACK_IMPORTED_MODULE_1__["default"])(_elements_js__WEBPACK_IMPORTED_MODULE_0__.title.value, _elements_js__WEBPACK_IMPORTED_MODULE_0__.desc.value, _elements_js__WEBPACK_IMPORTED_MODULE_0__.date.value, _elements_js__WEBPACK_IMPORTED_MODULE_0__.time.value, priority, listItems, _projects__WEBPACK_IMPORTED_MODULE_2__.activeProject);
+        (0,_items_js__WEBPACK_IMPORTED_MODULE_1__["default"])(_elements_js__WEBPACK_IMPORTED_MODULE_0__.title.value, _elements_js__WEBPACK_IMPORTED_MODULE_0__.desc.value, _elements_js__WEBPACK_IMPORTED_MODULE_0__.date.value, _elements_js__WEBPACK_IMPORTED_MODULE_0__.time.value, priority, listItems, _projects__WEBPACK_IMPORTED_MODULE_2__.activeProject);
         priority = "";
 
         closeForm();
@@ -778,11 +778,12 @@ _elements_js__WEBPACK_IMPORTED_MODULE_0__.allButtons.forEach(button => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ListItem": () => (/* binding */ ListItem),
+/* harmony export */   "createItemObj": () => (/* binding */ createItemObj),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
 /* harmony export */   "printItems": () => (/* binding */ printItems)
 /* harmony export */ });
-/* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
-/* harmony import */ var _todo_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todo.js */ "./src/js/todo.js");
+/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/js/projects.js");
+/* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
 
 
 
@@ -805,139 +806,6 @@ class ListItem {
         return this.active;
     }
 }
-
-const printItems = project => {
-    if(project === undefined) return 0;
-    project.forEach(item => {
-        (0,_todo_js__WEBPACK_IMPORTED_MODULE_1__.createItem)(item.title, item.desc, item.date, item.time, item.priority, _elements__WEBPACK_IMPORTED_MODULE_0__.listItems);
-    })
-}
-
-/***/ }),
-
-/***/ "./src/js/listeners.js":
-/*!*****************************!*\
-  !*** ./src/js/listeners.js ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
-/* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form */ "./src/js/form.js");
-/* harmony import */ var _projects_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./projects.js */ "./src/js/projects.js");
-/* harmony import */ var _deleteItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./deleteItem */ "./src/js/deleteItem.js");
-/* harmony import */ var _desc__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./desc */ "./src/js/desc.js");
-/* harmony import */ var _items_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./items.js */ "./src/js/items.js");
-
-
- 
-
-
-
-
-const addGlobalListener = (type, selector, callback) => {
-    document.addEventListener(type, e => {
-        if (e.target.matches(selector)) callback(e);
-    })
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (() => {
-    addGlobalListener("click", ".list__top", _desc__WEBPACK_IMPORTED_MODULE_4__["default"]);
-    addGlobalListener("click", ".list__delete", _deleteItem__WEBPACK_IMPORTED_MODULE_3__["default"]);
-    addGlobalListener("click", ".list__check", _deleteItem__WEBPACK_IMPORTED_MODULE_3__["default"]);
-    addGlobalListener("click", ".sidebar__item", e => {
-        // ORGANIZE
-        (0,_deleteItem__WEBPACK_IMPORTED_MODULE_3__.clearAll)();
-
-        const listItems = _elements__WEBPACK_IMPORTED_MODULE_0__.sidebar.querySelectorAll(".sidebar__item");
-        listItems.forEach(item => {
-            if(item.classList.contains("sidebar__item--active")) {
-                item.classList.remove("sidebar__item--active");
-            }
-        })
-
-        e.target.classList.add("sidebar__item--active");
-
-        (0,_projects_js__WEBPACK_IMPORTED_MODULE_2__.changeActive)(e.target.textContent);
-
-        const currentProject = _projects_js__WEBPACK_IMPORTED_MODULE_2__.listOfProjects[_projects_js__WEBPACK_IMPORTED_MODULE_2__.activeProject];
-
-        (0,_items_js__WEBPACK_IMPORTED_MODULE_5__.printItems)(currentProject);
-        
-        console.log(currentProject);
-        
-    });
-
-    _elements__WEBPACK_IMPORTED_MODULE_0__.addItemButton.addEventListener("click", _form__WEBPACK_IMPORTED_MODULE_1__.openForm);
-    _elements__WEBPACK_IMPORTED_MODULE_0__.addItemExit.addEventListener("click", _form__WEBPACK_IMPORTED_MODULE_1__.closeForm);
-    _elements__WEBPACK_IMPORTED_MODULE_0__.projectButton.addEventListener("click", _projects_js__WEBPACK_IMPORTED_MODULE_2__.openProject);
-    _elements__WEBPACK_IMPORTED_MODULE_0__.exitProject.addEventListener("click", _projects_js__WEBPACK_IMPORTED_MODULE_2__.closeProject);
-});
-
-/***/ }),
-
-/***/ "./src/js/projects.js":
-/*!****************************!*\
-  !*** ./src/js/projects.js ***!
-  \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "activeProject": () => (/* binding */ activeProject),
-/* harmony export */   "changeActive": () => (/* binding */ changeActive),
-/* harmony export */   "closeProject": () => (/* binding */ closeProject),
-/* harmony export */   "listOfProjects": () => (/* binding */ listOfProjects),
-/* harmony export */   "openProject": () => (/* binding */ openProject)
-/* harmony export */ });
-/* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
-/* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form */ "./src/js/form.js");
-
-
-
-let activeProject = "Main Tasks";
-
-let listOfProjects = {
-    "Main Tasks": [],
-    "Project #1": [],
-    "Project #2": [], 
-    "Project #3": [],
-};
-
-const openProject = () => {
-    _elements__WEBPACK_IMPORTED_MODULE_0__.addProjBox.style.display = "grid";
-    (0,_form__WEBPACK_IMPORTED_MODULE_1__.disableScreen)();
-}
-
-const closeProject = () => {
-    _elements__WEBPACK_IMPORTED_MODULE_0__.addProjBox.style.display = "none";
-    (0,_form__WEBPACK_IMPORTED_MODULE_1__.enableScreen)();
-}
-
-const changeActive = project => activeProject = project;
-
-
-/***/ }),
-
-/***/ "./src/js/todo.js":
-/*!************************!*\
-  !*** ./src/js/todo.js ***!
-  \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "createItem": () => (/* binding */ createItem),
-/* harmony export */   "createItemObj": () => (/* binding */ createItemObj),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/js/projects.js");
-/* harmony import */ var _items_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./items.js */ "./src/js/items.js");
-
-
 
 const createItem = (title, desc, date, time, priority, listItems) => {
     const itemElement = document.createElement("div");
@@ -998,13 +866,165 @@ const createItem = (title, desc, date, time, priority, listItems) => {
 }
 
 const createItemObj = (title, desc, date, time, priority, activeProject) => {
-    const item = new _items_js__WEBPACK_IMPORTED_MODULE_1__.ListItem(title, desc, date, time, priority);
+    const item = new ListItem(title, desc, date, time, priority);
     _projects__WEBPACK_IMPORTED_MODULE_0__.listOfProjects[activeProject].push(item);
+}
+
+const printItems = project => {
+    if(project === undefined) return 0;
+    project.forEach(item => {
+        createItem(item.title, item.desc, item.date, item.time, item.priority, _elements__WEBPACK_IMPORTED_MODULE_1__.listItems);
+    })
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((title, desc, date, time, priority, listItems, activeProject) => {
     createItem(title, desc, date, time, priority, listItems);
     createItemObj(title, desc, date, time, priority, activeProject);
+});
+
+/***/ }),
+
+/***/ "./src/js/listeners.js":
+/*!*****************************!*\
+  !*** ./src/js/listeners.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
+/* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form */ "./src/js/form.js");
+/* harmony import */ var _projects_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./projects.js */ "./src/js/projects.js");
+/* harmony import */ var _deleteItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./deleteItem */ "./src/js/deleteItem.js");
+/* harmony import */ var _desc__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./desc */ "./src/js/desc.js");
+
+
+ 
+
+
+
+
+const addGlobalListener = (type, selector, callback) => {
+    document.addEventListener(type, e => {
+        if (e.target.matches(selector)) callback(e);
+    })
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (() => {
+    addGlobalListener("click", ".list__top", _desc__WEBPACK_IMPORTED_MODULE_4__["default"]);
+    addGlobalListener("click", ".list__delete", _deleteItem__WEBPACK_IMPORTED_MODULE_3__["default"]);
+    addGlobalListener("click", ".list__check", _deleteItem__WEBPACK_IMPORTED_MODULE_3__["default"]);
+    addGlobalListener("click", ".sidebar__item", _projects_js__WEBPACK_IMPORTED_MODULE_2__.selectProject);
+
+    _elements__WEBPACK_IMPORTED_MODULE_0__.addItemButton.addEventListener("click", _form__WEBPACK_IMPORTED_MODULE_1__.openForm);
+    _elements__WEBPACK_IMPORTED_MODULE_0__.addItemExit.addEventListener("click", _form__WEBPACK_IMPORTED_MODULE_1__.closeForm);
+    _elements__WEBPACK_IMPORTED_MODULE_0__.projectButton.addEventListener("click", _projects_js__WEBPACK_IMPORTED_MODULE_2__.openProject);
+    _elements__WEBPACK_IMPORTED_MODULE_0__.exitProject.addEventListener("click", _projects_js__WEBPACK_IMPORTED_MODULE_2__.closeProject);
+});
+
+/***/ }),
+
+/***/ "./src/js/projects.js":
+/*!****************************!*\
+  !*** ./src/js/projects.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "activeProject": () => (/* binding */ activeProject),
+/* harmony export */   "changeActive": () => (/* binding */ changeActive),
+/* harmony export */   "closeProject": () => (/* binding */ closeProject),
+/* harmony export */   "currentActive": () => (/* binding */ currentActive),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "listOfProjects": () => (/* binding */ listOfProjects),
+/* harmony export */   "openProject": () => (/* binding */ openProject),
+/* harmony export */   "selectProject": () => (/* binding */ selectProject),
+/* harmony export */   "setCurrentActive": () => (/* binding */ setCurrentActive)
+/* harmony export */ });
+/* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
+/* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form */ "./src/js/form.js");
+/* harmony import */ var _items_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./items.js */ "./src/js/items.js");
+/* harmony import */ var _deleteItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./deleteItem */ "./src/js/deleteItem.js");
+
+
+
+
+
+
+let listOfProjects = {
+    "Main Tasks": [],
+    "Project #1": [],
+    "Project #2": [], 
+    "Project #3": [],
+};
+
+
+const removeActiveStatus = item => item.classList.remove("sidebar__item--active");
+
+const addActiveStatus = item => item.classList.add("sidebar__item--active");
+
+const findActiveProject = listItems => {
+    listItems.forEach(item => {
+        if(item.classList.contains("sidebar__item--active")) {
+            removeActiveStatus(item);
+        }
+    })
+}
+
+let activeProject = "Main Tasks";
+
+let currentActive = listOfProjects[activeProject];
+
+const setCurrentActive = () => currentActive = listOfProjects[activeProject];
+
+const openProject = () => {
+    _elements__WEBPACK_IMPORTED_MODULE_0__.addProjBox.style.display = "grid";
+    (0,_form__WEBPACK_IMPORTED_MODULE_1__.disableScreen)();
+}
+
+const closeProject = () => {
+    _elements__WEBPACK_IMPORTED_MODULE_0__.addProjBox.style.display = "none";
+    (0,_form__WEBPACK_IMPORTED_MODULE_1__.enableScreen)();
+}
+
+const changeActive = project => activeProject = project;
+
+const selectProject = e => {
+
+    (0,_deleteItem__WEBPACK_IMPORTED_MODULE_3__.clearAll)();
+
+    const listItems = _elements__WEBPACK_IMPORTED_MODULE_0__.sidebar.querySelectorAll(".sidebar__item");
+
+    findActiveProject(listItems);
+    addActiveStatus(e.target);
+    changeActive(e.target.textContent);
+    setCurrentActive();
+
+    (0,_items_js__WEBPACK_IMPORTED_MODULE_2__.printItems)(currentActive);
+    
+    console.log(currentActive);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (projectForm => {
+    projectForm.addEventListener("submit", e => {
+
+        const title = _elements__WEBPACK_IMPORTED_MODULE_0__.projectTitle.value;
+        
+        const listItem = document.createElement("li");
+        listItem.textContent = title;
+        listItem.classList.add("sidebar__item");
+    
+        _elements__WEBPACK_IMPORTED_MODULE_0__.sidebarList.append(listItem);
+    
+        listOfProjects[title] = [];
+        
+        console.log(listOfProjects);
+    
+        closeProject();
+    })
 });
 
 /***/ })
@@ -1092,10 +1112,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/main.scss */ "./src/styles/main.scss");
 /* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form */ "./src/js/form.js");
 /* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
-/* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./todo */ "./src/js/todo.js");
-/* harmony import */ var _listeners__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./listeners */ "./src/js/listeners.js");
-/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./projects */ "./src/js/projects.js");
-/* harmony import */ var _items_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./items.js */ "./src/js/items.js");
+/* harmony import */ var _listeners__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./listeners */ "./src/js/listeners.js");
+/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./projects */ "./src/js/projects.js");
+/* harmony import */ var _items_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./items.js */ "./src/js/items.js");
 
 
 
@@ -1103,34 +1122,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-(0,_listeners__WEBPACK_IMPORTED_MODULE_4__["default"])();
+(0,_listeners__WEBPACK_IMPORTED_MODULE_3__["default"])();
 (0,_form__WEBPACK_IMPORTED_MODULE_1__["default"])(_elements__WEBPACK_IMPORTED_MODULE_2__.form);
 
-(0,_todo__WEBPACK_IMPORTED_MODULE_3__.createItemObj)("title", "desc", "date", "time", "high", "Main Tasks");
-(0,_todo__WEBPACK_IMPORTED_MODULE_3__.createItemObj)("title1", "desc1", "date1", "time1", "med", "Project #1");
-(0,_todo__WEBPACK_IMPORTED_MODULE_3__.createItemObj)("title2", "desc2", "date2", "time2", "", "Project #2");
-(0,_todo__WEBPACK_IMPORTED_MODULE_3__.createItemObj)("title3", "desc3", "date3", "time3", "", "Project #3");
+(0,_items_js__WEBPACK_IMPORTED_MODULE_5__.createItemObj)("title", "desc", "date", "time", "high", "Main Tasks");
+(0,_items_js__WEBPACK_IMPORTED_MODULE_5__.createItemObj)("title1", "desc1", "date1", "time1", "med", "Project #1");
+(0,_items_js__WEBPACK_IMPORTED_MODULE_5__.createItemObj)("title2", "desc2", "date2", "time2", "", "Project #2");
+(0,_items_js__WEBPACK_IMPORTED_MODULE_5__.createItemObj)("title3", "desc3", "date3", "time3", "", "Project #3");
 
 
-(0,_items_js__WEBPACK_IMPORTED_MODULE_6__.printItems)(_projects__WEBPACK_IMPORTED_MODULE_5__.listOfProjects["Main Tasks"]);
-// ORGANIZE
-_elements__WEBPACK_IMPORTED_MODULE_2__.projectForm.addEventListener("submit", e => {
+(0,_items_js__WEBPACK_IMPORTED_MODULE_5__.printItems)(_projects__WEBPACK_IMPORTED_MODULE_4__.listOfProjects["Main Tasks"]);
+(0,_projects__WEBPACK_IMPORTED_MODULE_4__["default"])(_elements__WEBPACK_IMPORTED_MODULE_2__.projectForm);
 
-    const title = _elements__WEBPACK_IMPORTED_MODULE_2__.projectTitle.value;
-    
-    const listItem = document.createElement("li");
-    listItem.textContent = title;
-    listItem.classList.add("sidebar__item");
-
-    _elements__WEBPACK_IMPORTED_MODULE_2__.sidebarList.append(listItem);
-
-    _projects__WEBPACK_IMPORTED_MODULE_5__.listOfProjects[title] = [];
-    
-    console.log(_projects__WEBPACK_IMPORTED_MODULE_5__.listOfProjects);
-
-    // closeProject();
-})
 })();
 
 /******/ })()

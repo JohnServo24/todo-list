@@ -1,9 +1,9 @@
-import { addItemButton, addItemExit, projectButton, exitProject, sidebar} from "./elements";
+import { addItemButton, addItemExit, projectButton, exitProject} from "./elements";
 import {openForm, closeForm} from "./form";
-import {openProject, closeProject, listOfProjects, activeProject, changeActive} from "./projects.js" 
-import deleteItem, {clearAll} from './deleteItem';
+import {openProject, closeProject, selectProject} from "./projects.js" 
+import deleteItem from './deleteItem';
 import toggleDesc from './desc';
-import {printItems} from "./items.js";
+
 
 const addGlobalListener = (type, selector, callback) => {
     document.addEventListener(type, e => {
@@ -15,28 +15,7 @@ export default () => {
     addGlobalListener("click", ".list__top", toggleDesc);
     addGlobalListener("click", ".list__delete", deleteItem);
     addGlobalListener("click", ".list__check", deleteItem);
-    addGlobalListener("click", ".sidebar__item", e => {
-        // ORGANIZE
-        clearAll();
-
-        const listItems = sidebar.querySelectorAll(".sidebar__item");
-        listItems.forEach(item => {
-            if(item.classList.contains("sidebar__item--active")) {
-                item.classList.remove("sidebar__item--active");
-            }
-        })
-
-        e.target.classList.add("sidebar__item--active");
-
-        changeActive(e.target.textContent);
-
-        const currentProject = listOfProjects[activeProject];
-
-        printItems(currentProject);
-        
-        console.log(currentProject);
-        
-    });
+    addGlobalListener("click", ".sidebar__item", selectProject);
 
     addItemButton.addEventListener("click", openForm);
     addItemExit.addEventListener("click", closeForm);
