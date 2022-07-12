@@ -21,7 +21,7 @@ FEATURES
 - Instead of putting the items of a project into an array, put it into an object and make the title as the key
 
 
-I want to be able to redesign the program because it's a mess, but that would mean I have to start from scratch which I do not want to do as of this moment.
+I want to redesign the program because it's a mess, but that would mean I have to start from scratch which I do not want to do as of this moment.
 But somewhere in the future, I will come back to this project and finally finish it.
 
 Otherwise, this program is fully functional without errors.
